@@ -1,3 +1,12 @@
-node_modules/
+# Gatsby
 .cache/
 public
+
+# Node
+node_modules
+
+# IDE
+.idea/
+
+# System
+**/.DS_Store
