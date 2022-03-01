@@ -2,8 +2,9 @@
 .cache/
 public
 
-# Node
+# Node Ecosystem
 node_modules
+build/
 
 # IDE
 .idea/

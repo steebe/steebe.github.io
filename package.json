@@ -1,25 +1,41 @@
 {
-  "name": "gatsby-tutorial",
+  "name": "stevebass.me",
   "version": "1.0.0",
   "private": true,
   "description": "gatsby-tutorial",
-  "author": "Stephen Bass",
+  "author": "Steve Bass",
   "keywords": [
     "gatsby"
   ],
   "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
     "build": "gatsby build",
+    "clean": "gatsby clean",
+    "compile": "tsc",
+    "dev": "gatsby develop",
+    "lint": "eslint . && prettier --check src",
+    "lint-fix": "eslint . --fix && prettier --write src",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "start": "gatsby develop"
   },
   "dependencies": {
+    "@mdx-js/mdx": "^1.6.22",
+    "@mdx-js/react": "^1.6.22",
     "gatsby": "^4.7.2",
     "gatsby-plugin-image": "^2.7.0",
+    "gatsby-plugin-mdx": "^3.8.1",
     "gatsby-plugin-sharp": "^4.7.0",
     "gatsby-source-filesystem": "^4.8.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.12.1",
+    "@typescript-eslint/parser": "^5.12.1",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.4.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.29.2",
+    "prettier": "2.5.1",
+    "typescript": "^4.5.5"
   }
 }

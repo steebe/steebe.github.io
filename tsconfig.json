@@ -1,0 +1,32 @@
+{
+  /* https://aka.ms/tsconfig.json */
+  "compilerOptions": {
+    "target": "es6",
+    "lib": [
+      "dom"
+    ],
+    "jsx": "react",
+    "module": "commonjs",
+    "rootDir": "./src",
+    "allowJs": true,
+    "checkJs": false,
+    "outDir": "./build",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "skipLibCheck": true
+  },
+  "exclude": [
+    "build",
+    "public",
+    "**/gatsby-config.js",
+    "**/node_modules",
+    "**/.*"
+  ]
+}
