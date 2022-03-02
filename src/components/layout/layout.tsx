@@ -28,7 +28,7 @@ const Layout: React.FC<Props> = ({ pageTitle, children }) => {
   const page = typeof window !== "undefined" ? window.location.pathname : undefined;
   const isHome = page === "/";
   const isAbout = page?.includes("about");
-  const isBlog = page?.includes("blog");
+  const isBlog = page?.includes("writings");
 
   return (
     <div className={container}>
@@ -54,7 +54,7 @@ const Layout: React.FC<Props> = ({ pageTitle, children }) => {
           )}
           {!isBlog && (
             <li className={navLinkItem}>
-              <Link to="/blog" className={navLinkText}>
+              <Link to="/writings" className={navLinkText}>
                 Blog
               </Link>
             </li>

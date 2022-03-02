@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: "gatsby-tutorial",
+    title: "steebe",
     siteUrl: "https://www.stevebass.me",
   },
   plugins: [

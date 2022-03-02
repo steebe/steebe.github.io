@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "../components/layout/layout";
+import Layout from "../../components/layout/layout";
 import { graphql, PageProps } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 
@@ -18,7 +18,7 @@ type DataProps = {
   };
 };
 
-const Blog = ({ data }: PageProps<DataProps>) => {
+const Writings = ({ data }: PageProps<DataProps>) => {
   console.log(data);
   return (
     <Layout pageTitle="Ramblings">
@@ -48,4 +48,4 @@ export const query = graphql`
   }
 `;
 
-export default Blog;
+export default Writings;

@@ -2,7 +2,7 @@
   "name": "stevebass.me",
   "version": "1.0.0",
   "private": true,
-  "description": "gatsby-tutorial",
+  "description": "A redux of my personal site, with Gatsby",
   "author": "Steve Bass",
   "keywords": [
     "gatsby"
