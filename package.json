@@ -5,7 +5,7 @@
   "description": "A redux of my personal site, with Gatsby",
   "author": "Steve Bass",
   "keywords": [
-    "gatsby"
+    "gatsby", "steve", "bass", "steebe"
   ],
   "scripts": {
     "build": "gatsby build",
