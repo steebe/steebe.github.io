@@ -1,0 +1,55 @@
+---
+title: "MySQL Tips and Tricks"
+date: "2021-01-05"
+---
+
+# MySQL - Helpful Tidbits
+
+My experiences at Rev360 (RevolutionEHR) and Mercato brought about developing for back-ends that leverage MySQL for data storage solutions. All my other previous experiences were within the context of Oracle, DB2, and SQL Server database technologies, and I found myself constantly Googling to see how to do things better in MySQL. Below are some of those findings.
+
+### Perform batch UPDATEs with a temp table
+
+When performing ```UPDATE```s against a table in bulk, MySQL is pretty non-performant when given a raw ```UPDATE``` statement with a ```WHERE``` clause:
+
+```sql
+UPDATE A
+SET foo = 'bar' WHERE id < 1000;
+```
+
+The best way of handling bulk ```UPDATE```s turns out to be establishing a temp table containing the values that encapsulate the data for the ```UPDATE```, and then performing the ```UPDATE``` with a ```JOIN``` against the temporary table.
+
+```sql
+DROP TABLE IF EXISTS `tempFooValues`;
+
+CREATE TABLE `tempFooValues` (
+`id` INT(11) UNSIGNED NOT NULL,
+`foo` VARCHAR(255) NOT NULL,
+PRIMARY KEY(`id`)
+);
+
+INSERT INTO tempFooValues (id, foo) VALUES
+(1, 'bar'),
+(2, 'bar'),
+...,
+...,
+(1000, 'bar');
+
+UPDATE A
+INNER JOIN tempFooValues ON tempFooValues.id = A.id
+SET
+A.foo = tempFooValues.foo;
+```
+
+### Leveraging CASE within a JOIN
+
+This one is pretty self-explanatory...
+
+```sql
+SELECT * FROM A
+JOIN B
+ON CASE
+WHEN B.type IN (1, 3) AND B.a_id = A.id THEN 1
+WHEN B.type IN (2) AND B.other_id = A.other_id THEN 1
+ELSE 0
+END = 1;
+```

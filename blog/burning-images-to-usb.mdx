@@ -1,0 +1,25 @@
+---
+title: "Burning Images to USB on a Mac"
+date: "2018-07-11"
+---
+
+# Become the Trogdor of ISOs
+
+On MacOS, there exist a few darwin executables that come in handy in regards to
+making external disks bootable.
+
+1. Download an image you want to install to another local machine
+2. Follow these steps within your favorite MacOS terminal application:
+{% highlight bash %}
+$ hdiutil convert -format UDRW -o /path/to/target.img /path/to/source.iso
+$ man hdiutil # Since you probably don't know what you just did...
+$ mv /path/to/target.img.dmg /path/to/target.img
+$ # Seems dumb, because it is. MacOS appends .dmg to the target image.
+$ # Insert your USB drive now!
+$ diskutil list
+$ sudo dd if=/path/to/converted.img of=/dev/rdiskN bs=1m
+$ # Wait for an annoyingly arbitrary amount of time.
+$ diskutil eject /dev/diskN
+$ # Actually super important. Ignore any warnings that MacOS throws at you.
+{% endhighlight %}
+3. Plug it into the machine you want to ~~brick~~ install the image to and boot up in that one mode that lets you mess around with the BIOS!

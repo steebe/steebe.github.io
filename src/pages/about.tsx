@@ -1,25 +1,16 @@
 import React from "react";
 import Layout from "../components/layout/layout";
-import { graphql, useStaticQuery } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image";
 
 const About = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      sitePage {
-        component
-        path
-      }
-    }
-  `);
-
   return (
-    <Layout pageTitle="About">
-      <b>{data.sitePage.path}</b>
+    <Layout pageTitle="ABOUT">
       <p>
         Steve Bass is a software developer residing in San Diego, CA, working remotely from his
         Banker’s Hill apartment. He has been in industry for over six years, across four domains of
         business.
       </p>
+      <StaticImage src="../images/me_dog_beach.jpeg" alt="Me, at Dog Beach" />
       <p>
         Steve’s recent experience as engineer #4 at Mercato was his most formative, but all of his
         opportunities offered great chances to help him become a strong generalist enterprise

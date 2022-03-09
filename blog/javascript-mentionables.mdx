@@ -1,0 +1,41 @@
+---
+title: "JavaScript Noteables"
+date: "2018-07-05"
+draft: true
+---
+
+# Concepts
+
+## Short-circuit Evaluation
+In any line that evaluates multiple conditions, JS does its best to short-
+circuit what needs to be evaluated.
+
+```JavaScript
+// LHS is evaluated and returned as true (RHS ignored)
+console.log("me" || "you");
+
+// 1st condition evaluated as false yields third condition evaluation & return
+// (returns true due to two true expressions "you" and "you")
+console.log(0 ? ("me || me") : ("you" && "you"))
+```
+
+## Automatic Type Conversion (Via Type Coercion)
+JS does its best to allow any types to be compared and returned. Its interpreter
+performs _type coercion_ on the values it is "confused" about.
+
+```JavaScript
+console.log(8 * null);  // converts null to 0, returns 0
+console.log("5" - 1);   // converts "5" to 5, returns 4
+console.log("5" + 1);   // converts 1 to "1", returns "51"
+console.log("five" * 2);// cannot perform conversion on "five", returns NaN
+```
+
+Note that the type coercion being performed is heavily dependent on the
+_operation_; The values being evaluated and converted are secondary in
+comparison.
+
+## Variables & Data Binding
+There are three keywords that represent assigning a value to a variable:
+1. _var_ - allows for defining a global variable. When _var_ is used in the context of a local block, the associated variable can be accessed outside said block.
+2. _let_ - introduced in ES2015. Allows for defining a local variable whose scope is exactly the block it belongs to.
+3. _const_ - when used in assignment, behaves like _final_ in Java. The associated variables behave just like variables defined with _let_, only they cannot be modified at all in the future.

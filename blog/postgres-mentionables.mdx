@@ -1,0 +1,22 @@
+---
+title: "PostgreSQL Mentionables"
+date: "2018-03-04"
+---
+
+# Notes!
+
+## Once PostgreSQL is installed on a machine...
+
+```bash
+# Create a user that can start interacting with the DB other than postgres
+{~} % sudo su postgres -c 'createuser -P --superuser bassman'
+# With that user, create a DB
+{~} % createdb --username=bassman --password loc
+```
+
+```bash
+# Remove PostgreSQL from Mac
+$ open /Library/PostgreSQL/<ver>/uninstall-postgresql.app
+$ sudo rm /etc/postgres-reg.ini
+$ sudo rm -rf /Library/PostgreSQL
+```

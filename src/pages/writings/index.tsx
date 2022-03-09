@@ -1,34 +1,45 @@
 import React from "react";
 import Layout from "../../components/layout/layout";
-import { graphql, PageProps } from "gatsby";
-import { MDXRenderer } from "gatsby-plugin-mdx";
+import { graphql, Link, PageProps } from "gatsby";
+import { previewContainer, textEnd } from "./writings.module.css";
 
-type NodeType = {
-  frontmatter: {
-    date: string;
-    title: string;
-  };
+type Node = {
   id: string;
   body: string;
+  slug: string;
+  frontmatter: {
+    date: string;
+    draft: boolean;
+    title: string;
+  };
 };
 
 type DataProps = {
   allMdx: {
-    nodes: NodeType[];
+    nodes: Node[];
   };
 };
 
 const Writings = ({ data }: PageProps<DataProps>) => {
-  console.log(data);
+  const eligibleNodes = data.allMdx.nodes.filter((node) => !node.frontmatter.draft);
   return (
-    <Layout pageTitle="Ramblings">
-      {data.allMdx.nodes.map((node) => (
-        <article key={node.id}>
-          <h2>{node.frontmatter.title}</h2>
-          <p>{node.frontmatter.date}</p>
-          <MDXRenderer>{node.body}</MDXRenderer>
-        </article>
-      ))}
+    <Layout pageTitle="RAMBLINGS">
+      {eligibleNodes.map((node, index) => {
+        if (!node.frontmatter.draft) {
+          return (
+            <div className={previewContainer} key={`${node.id}/${node.frontmatter.title}`}>
+              <div key={node.id}>
+                <span>
+                  <Link to={`/writings/${node.slug}`}>{node.frontmatter.title}</Link>
+                  <p className={textEnd}>{node.frontmatter.date}</p>
+                </span>
+              </div>
+              {!(index === eligibleNodes.length - 1) && <hr />}
+            </div>
+          );
+        }
+        return null;
+      })}
     </Layout>
   );
 };
@@ -37,12 +48,14 @@ export const query = graphql`
   query {
     allMdx(sort: { fields: frontmatter___date, order: DESC }) {
       nodes {
-        frontmatter {
-          date(formatString: "MMMM D, YYYY")
-          title
-        }
         id
         body
+        slug
+        frontmatter {
+          date(formatString: "MMMM D, YYYY")
+          draft
+          title
+        }
       }
     }
   }

@@ -2,6 +2,7 @@ import React from "react";
 import Layout from "../../components/layout/layout";
 import { graphql, PageProps } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
+import { textEnd } from "./writings.module.css";
 
 type DataProps = {
   mdx: {
@@ -15,8 +16,10 @@ type DataProps = {
 
 const Post = ({ data }: PageProps<DataProps>) => {
   return (
-    <Layout pageTitle={data.mdx.frontmatter.title}>
-      <p>{data.mdx.frontmatter.date}</p>
+    <Layout>
+      <p className={textEnd}>
+        <i>{data.mdx.frontmatter.date}</i>
+      </p>
       <MDXRenderer>{data.mdx.body}</MDXRenderer>
     </Layout>
   );

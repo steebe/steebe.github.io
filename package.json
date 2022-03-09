@@ -24,6 +24,7 @@
     "gatsby-plugin-image": "^2.7.0",
     "gatsby-plugin-mdx": "^3.8.1",
     "gatsby-plugin-sharp": "^4.7.0",
+    "gatsby-remark-images": "^6.9.0",
     "gatsby-source-filesystem": "^4.8.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"

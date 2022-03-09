@@ -1,16 +1,10 @@
 import React from "react";
 import { graphql, Link, useStaticQuery } from "gatsby";
-import {
-  container,
-  heading,
-  navLinks,
-  navLinkItem,
-  navLinkText,
-  siteTitle,
-} from "./layout.module.css";
+import { centeredText, navLinkText } from "../globals.module.css";
+import { container, footer, heading, navLinks, navLinkItem } from "./layout.module.css";
 
 type Props = {
-  pageTitle: string;
+  pageTitle?: string;
 };
 
 const Layout: React.FC<Props> = ({ pageTitle, children }) => {
@@ -29,42 +23,48 @@ const Layout: React.FC<Props> = ({ pageTitle, children }) => {
   const isHome = page === "/";
   const isAbout = page?.includes("about");
   const isBlog = page?.includes("writings");
+  const isPost = page?.includes("writings/");
 
   return (
     <div className={container}>
       <title>
         {pageTitle} | {data.site.siteMetadata.title}
       </title>
-      <header className={siteTitle}>{data.site.siteMetadata.title}</header>
       <nav>
         <ul className={navLinks}>
           {!isHome && (
             <li className={navLinkItem}>
               <Link to="/" className={navLinkText}>
-                Home
+                HOME
               </Link>
             </li>
           )}
           {!isAbout && (
             <li className={navLinkItem}>
               <Link to="/about" className={navLinkText}>
-                About
+                ABOUT
               </Link>
             </li>
           )}
-          {!isBlog && (
+          {(!isBlog || isPost) && (
             <li className={navLinkItem}>
               <Link to="/writings" className={navLinkText}>
-                Blog
+                BLOG
               </Link>
             </li>
           )}
         </ul>
       </nav>
-      <main>
-        <h1 className={heading}>{pageTitle}</h1>
-        {children}
-      </main>
+      {pageTitle && <h1 className={heading}>{pageTitle}</h1>}
+      <main>{children}</main>
+      <footer className={`${centeredText} ${footer}`}>
+        <Link to="https://www.github.com/steebe" className={`${navLinkText} ${navLinkItem}`}>
+          GITHUB
+        </Link>
+        <Link to="https://www.linkedin.com/in/bassman5001" className={navLinkText}>
+          LINKEDIN
+        </Link>
+      </footer>
     </div>
   );
 };

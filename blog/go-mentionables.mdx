@@ -1,0 +1,49 @@
+---
+title: "Go Noteables"
+date: "2018-07-26"
+draft: true
+---
+
+# Go
+Go, the prodigal brainchild of various engineers, community enthusiasts (Gophers) and brilliant language/compiler developers, is perhaps Google's best contribution to the Computer Science field.
+
+### Important Packages
+_os_ - contains the go code available for interacting with the operating system hosting a go executable
+* _os_.**Args** - a slice of strings that represent the command line arguments passed into a Go application's runtime environment
+
+### Lingo
+_slice_ - a dynamically sized sequence of array elements. Individual elements
+can be accessed as
+```go
+mySlice[i]
+```
+...chunks can be accessed as
+```go
+mySlice[m:n]
+```
+...and the length is reported with
+```go
+len(mySlice)
+```
+
+### Conventions
+
+_zero values_ - any variable that's not defined in its declaration takes what's called a "zero value"
+* **string** --> "" (empty string)
+* numeric types --> 0
+
+_:=_ - the "short variable declaration" is the operator used in a statement to declare one or more variables and give them appropriate types based on the initializer value
+```gox := 2 // initializes x to 2```
+
+## Updating Go
+{% highlight bash %}
+$ sudo rm -rf /usr/local/go
+# Download latest tar from distribution (https://golang.org/dl/)
+$ sudo tar -C /usr/local -xzf <path-to-tarball>
+# Edit GOROOT, GOPATH and PATH
+$ echo $PATH | grep "/usr/local/go/bin"
+```
+
+
+### Sources
+1. [Nikhita](https://gist.github.com/nikhita/432436d570b89cab172dcf2894465753)

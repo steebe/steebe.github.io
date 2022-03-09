@@ -1,0 +1,33 @@
+---
+title: "Git: Intermediate Commands"
+date: "2020-04-04"
+---
+
+# The Deck Itself
+## [git-intermediate](https://steebe.github.io/git-intermediate-deck/#/)
+
+# Teaching Git
+While working for a large company whose technological aspirations were dwarfed by its six-tiered leadership's inability to understand technology, I found myself in a position that should have annoyed any developer.
+
+Teaching is luckily something I _found_ enjoyable at one point in my life; I was fortunate enough to have the means and opportunity to be a teaching assistant (TA) and student assistant (SA) at my alma mater, [The University at Buffalo](http://www.buffalo.edu/). My duties as a TA taught me patience, discipline, and understanding. I didn't anticipate I'd have to tap into those attributes so heavily in an industry setting day-to-day, but nevertheless I found myself having to harness them simply to channel some empathy for a group of developers who had no knowledge (or interest for that matter) in proper version control & repository hygiene.
+
+If I had to take a stab in the dark, I would guess that of every five developers I've had the opportunity to chat with, two have experienced working with the kinds of colleagues I'm describing. Perhaps you know of them too, the developers that...
+* Email zip files of the latest state of their local repository to the entire team
+* Push directly to master, or a protected branch, without review
+* Never establish a protected branch
+* Perform merges of a single branch that contains over 100 new commits
+* Introduce sensitive credentials or other secrets to the remote repository, and then simply delete the repository weeks later after realizing the mistake
+** ...two to three times a quarter
+
+After a few weeks of slowly losing my sanity while watching these examples unfold in repositories I was meant to contribute to, I felt that I didn't need to come to grips with this reality. Instead, I approached my management with a simple, yet stern request for new repositories that I would own. I locked down master, published README.md files with strict development requirements (checkstyles for Java, husky TS Lint checks for JS projects, code coverage requirements, the whole nine...), and wrote & conducted the presentation found below. I even came up with an [example repository](https://github.com/steebe/git-intermediate-practice) with pre-configured branches that would allow those who cloned it to test all of the commands I introduce in the presentation.
+
+I set up a webhook on the example repository's remote clone operatiton to notify me when individuals cloned it for practice. Not a single hit.
+
+Emails continued pouring into my inbox containing zipped up repositories in a dirty state with changes.
+
+"Architects" continued bastardizing their "protected" branches.
+
+I didn't lose my sanity, though, and I didn't give in to malpractice. If you find yourself in a frustrating situation that requires a bit of back-pedalling, please feel free to steal this in an effort to preserve even more sanity.
+
+## [git-intermediate](https://steebe.github.io/git-intermediate-deck/#/)
+### Made with [reveal.js](https://revealjs.com)

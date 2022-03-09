@@ -1,0 +1,45 @@
+---
+title: "Fixing the Neighborhood by Preventing Broken Windows"
+date: "2018-06-07"
+---
+
+In the spirit of making a big impact via many small changes, I'd like to spell out the importance of maintaining standards through blacklisting ambiguity wherever possible. It's clear to most savvy developers nowadays that there are a few practices that are a must on any project:
+- Keeping unit tests in mind (and using TDD when it's appropriate)
+- Writing clean code
+- Commenting the necessary amount
+- Conducting efficient code reviews
+
+While this is a whitelist of what some can argue should be the bare minimum set of requirements for developing within an enterprise environment, I'd argue there are more:
+- Being fluent in your VCS
+- Leveraging a .gitconfig to its fullest potential, for example
+- Enforcing team-wide standards in terms of branching models & [rebases vs. merges](https://www.atlassian.com/git/tutorials/merging-vs-rebasing)
+- Establishing and recording code format standards - Using an [.editorconfig](https://editorconfig.org/) in each project
+- Developing and maintaining a "Development Requirements" document alongside each project
+- Treating each application as if any number of random developers will have to jump in to contribute
+- Making onboarding any new developer to any application as easy as sending them a single URL
+
+Keep in mind that this set of additional standards is only powerful when those abiding by it also enforce the prevention of the opposite of these standards.
+
+## Windows, Etc.
+Broken Windows are a concept brought up within The [Pragmatic Programmer](https://www.amazon.com/Pragmatic-Programmer-Journeyman-Master/dp/020161622X) book, and they essentially represent the disobedience of any of the aforementioned "standards." The idea came from a study that explained neighborhoods immediately begin to "go downhill," so to speak, when a single broken window
+is visible from the street. One broken window is all it takes for the general public to start implementing
+their own carelessness and letting socioeconomic ethics fall by the wayside. This is directly analogous to
+team development endeavors. It takes but a single approved pull (merge) request full of commits that lack comments, break common formatting or are missing details within the commit message before the rest of the team begins rushing their own development endeavors and pushing junk to the remote.
+
+Utilizing the standards spelled out above is not a meaningless, nit-picky feat. Each is imperative in maintaining [velocity](https://www.scruminc.com/velocity/); Within my first year of industry experience I worked on a team with four other developers whose velocity took a noticeable dive just one and a half sprints (~five weeks) after a week of poorly conducted code reviews. Specifically, the team was shedding about twenty story points per sprint from our velocity and the reason was simple. Bad code made it into production due to a rushed code review, which led to prioritizing bug fixes, which led to less time being dedicated to new feature development. When this sort of situation unravels on a development team, while being paired with the usual amount of time- to-market demand, the project spins out of control until it's full of broken windows and velocity is at an all-time low. There goes the neighborhood.
+
+## Don't Be Lazy
+It cannot be stressed enough that _simple_, effective measures can be taken to measurably improve a team's workflow and code quality. Having a simple standards checklist (like [Joel's list](https://www.joelonsoftware.com/2000/08/09/the-joel-test-12-steps-to-better-code/)) is a great start, but ensuring every member enforces the prevention of practices that don't abide such standards is equally important.
+Respectfully enforce the standards you feel are important
+
+**As a Developer**:
+- Take code reviews as seriously as your own contributions
+- Document as much as you can about your individual processes
+- Publish your local development configurations to a public space
+
+**As a Team**:
+- Establish what it means to conduct a "good" code review
+- Follow some [guidelines](https://smartbear.com/learn/code-review/best-practices-for-peer-code-review/) that have already been established, when possible
+- Discuss and document your VCS methodologies
+- Document the development requirements for getting up to speed in contributing to each application
+TL;DR - do not "break any windows" by developing habits that are not in line with establishing momentum or adhering to improving development standards. Prevent others from breaking windows. Fix any existing broken windows when you have the time.
