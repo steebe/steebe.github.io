@@ -58,10 +58,14 @@ const Layout: React.FC<Props> = ({ pageTitle, children }) => {
       {pageTitle && <h1 className={heading}>{pageTitle}</h1>}
       <main>{children}</main>
       <footer className={`${centeredText} ${footer}`}>
-        <Link to="https://www.github.com/steebe" className={`${navLinkText} ${navLinkItem}`}>
+        <Link
+          to="https://www.github.com/steebe"
+          target="_blank"
+          className={`${navLinkText} ${navLinkItem}`}
+        >
           GITHUB
         </Link>
-        <Link to="https://www.linkedin.com/in/bassman5001" className={navLinkText}>
+        <Link to="https://www.linkedin.com/in/bassman5001" target="_blank" className={navLinkText}>
           LINKEDIN
         </Link>
       </footer>
