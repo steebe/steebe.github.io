@@ -40,7 +40,7 @@ arr = [1, 2, 3]
 
 * Hashes - A map; a list of key value pairs (similar to Python dict)
 ```ruby
-h = {"key" => "value", "name" => "steebe"}
+h = "key" => "value", "name" => "steebe"
 ```
 * Symbols - A static constant of sorts. The syntax of a symbol in code is _:<symbol-name>_ (:symbolA, :mysymbol, :etc). The symbol can be reused over and over, and memory is only allocated once for its representation. Its underlying representation, by the way, is a string when it is consumed.
 ```ruby
@@ -49,13 +49,7 @@ puts :mySym # => mySym
 ```
 
 ## Blocks
-In Ruby, any code contained within curly braces ({}) is considered a block. Blocks are special, because they are often invoked by a function. The invoker is responsible for sending any values to the block in the form of a variable. For example:
-
-```ruby
-5.times { |time|    # start of block; value assigned to time by times
-puts time       # prints 0 -> 5
-}
-```
+In Ruby, any code contained within curly braces is considered a block. Blocks are special, because they are often invoked by a function. The invoker is responsible for sending any values to the block in the form of a variable. For example:
 
 Note that the variable is passed into the block in a parameter list encapsulated in pipes. Any multi-parameter implementation is comma separated.
 
@@ -63,13 +57,6 @@ Note that the variable is passed into the block in a parameter list encapsulated
 In the context of processing strings or printing to them to the console, Ruby offers a convention that helps with formatting and dealing with expressions as strings.
 
 Within double quotes, the hash sign followed by a pair of curly braces denotes accessing a value. The contents within the curly braces must be a variable or expression that represents a string.
-
-```ruby
-player = {"name" => "steebe", "age" => "24", "game" => "GOW"}
-player.each { |k, v|
-puts "#{k}, #{v}" # => name, steebe \n, etc.
-}
-```
 
 ## Functions
 Functions (inherently "methods" due to being defined within a class body) can be called from any object in Ruby, but only certain methods work on certain objects.
