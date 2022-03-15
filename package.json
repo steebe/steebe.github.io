@@ -14,7 +14,7 @@
     "build": "gatsby build",
     "clean": "gatsby clean",
     "compile": "tsc",
-    "deploy": "gatsby build && gh-pages -d public -b public",
+    "deploy": "gatsby build && gh-pages -d public -b master",
     "dev": "gatsby develop",
     "lint": "eslint . && prettier --check src",
     "lint-fix": "eslint . --fix && prettier --write src",
