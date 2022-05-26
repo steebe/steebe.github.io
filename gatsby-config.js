@@ -14,7 +14,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-mdx`,
+      resolve: "gatsby-plugin-mdx",
       options: {
         gatsbyRemarkPlugins: [
           {
@@ -25,6 +25,15 @@ module.exports = {
             },
           },
         ],
+      },
+    },
+    {
+      resolve: "gatsby-plugin-google-gtag",
+      options: {
+        trackingIds: ["G-J596TM92WV"],
+        pluginConfig: {
+          head: true,
+        },
       },
     },
   ],

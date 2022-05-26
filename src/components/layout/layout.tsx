@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql, Link, useStaticQuery } from "gatsby";
+import { OutboundLink } from "gatsby-plugin-google-gtag";
 import { centeredText, navLinkText } from "../globals.module.css";
 import { container, footer, heading, navLinks, navLinkItem } from "./layout.module.css";
 
@@ -57,16 +58,22 @@ const Layout: React.FC<Props> = ({ pageTitle, children }) => {
       {pageTitle && <h1 className={heading}>{pageTitle}</h1>}
       <main>{children}</main>
       <footer className={`${centeredText} ${footer}`}>
-        <Link
-          to="https://www.github.com/steebe"
+        <OutboundLink
+          href="https://www.github.com/steebe"
           target="_blank"
           className={`${navLinkText} ${navLinkItem}`}
+          rel="noreferrer"
         >
           GITHUB
-        </Link>
-        <Link to="https://www.linkedin.com/in/bassman5001" target="_blank" className={navLinkText}>
+        </OutboundLink>
+        <OutboundLink
+          href="https://www.linkedin.com/in/bassman5001"
+          target="_blank"
+          className={navLinkText}
+          rel="noreferrer"
+        >
           LINKEDIN
-        </Link>
+        </OutboundLink>
       </footer>
     </div>
   );
