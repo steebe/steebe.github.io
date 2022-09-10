@@ -43,6 +43,6 @@
     "eslint-plugin-react": "^7.29.2",
     "gh-pages": "^3.2.3",
     "prettier": "2.5.1",
-    "typescript": "^4.5.5"
+    "typescript": "^4.8.3"
   }
 }
