@@ -27,9 +27,7 @@ const Layout: React.FC<Props> = ({ pageTitle, children }) => {
 
   return (
     <div className={container}>
-      <title>
-        {pageTitle} | {data.site.siteMetadata.title}
-      </title>
+      <title>{data.site.siteMetadata.title}</title>
       <nav>
         <ul className={navLinks}>
           {!isHome && (
