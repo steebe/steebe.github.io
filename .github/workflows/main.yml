@@ -1,0 +1,36 @@
+name: main
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  compile-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: Configure Node.js
+        uses: actions/setup-node@v3.6.0
+        with:
+          node-version: 18.12.1
+
+      - name: install
+        run: npm i
+
+      - name: lint
+        run: npm run lint
+
+      - name: compile
+        run: npm run compile
+
+      - name: deploy
+        uses: enriikke/gatsby-gh-pages-action@v2
+        with:
+          access-token: ${{ secrets.ACCESS_TOKEN }}

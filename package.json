@@ -1,6 +1,6 @@
 {
   "name": "stevebass.me",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "private": true,
   "description": "A redux of my personal site, with Gatsby",
   "author": "Steve Bass",
@@ -14,7 +14,6 @@
     "build": "gatsby build",
     "clean": "gatsby clean",
     "compile": "tsc",
-    "deploy": "gatsby build && gh-pages -d public -b master",
     "dev": "gatsby develop",
     "lint": "eslint . && prettier --check src",
     "lint-fix": "eslint . --fix && prettier --write src",
@@ -40,7 +39,6 @@
     "eslint-config-prettier": "^8.4.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.2",
-    "gh-pages": "^3.2.3",
     "prettier": "2.5.1",
     "typescript": "^4.8.3"
   }
