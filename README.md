@@ -10,7 +10,10 @@ A revamping of Steve Bass’ personal site, using Gatsby.
    - [Upgrade guide](https://www.gatsbyjs.com/docs/reference/release-notes/migrating-from-v4-to-v5/)
    - [MDX Plugin Upgrade](https://www.gatsbyjs.com/plugins/gatsby-plugin-mdx/)
    - [Important hack for MDX](https://paulie.dev/posts/2022/09/mdx-2-breaking-changes-and-gatsby-plugin-mdx-v4-slug/)
-      - Additional workaround: {mdx.slug}.tsx --> {mdx.fields__slug}.tsx 
+      - Additional workaround: {mdx.slug}.tsx --> {mdx.fields__slug}.tsx
+- `1.1.1`: "code changes," or **not a true patch**
+   - Github Actions introduction to build & ship to `master` on push to `dev`, for Github Pages to then publish
+   - https://github.com/enriikke/gatsby-gh-pages-action
 
 ### Diary
 
