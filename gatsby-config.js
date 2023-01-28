@@ -3,6 +3,7 @@ module.exports = {
     title: "steebe",
     siteUrl: "https://www.stevebass.me",
   },
+  trailingSlash: "never",
   plugins: [
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",

@@ -1,7 +1,6 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import Layout from "../../components/layout/layout";
 import { graphql, PageProps } from "gatsby";
-import { MDXRenderer } from "gatsby-plugin-mdx";
 import { textEnd } from "./writings.module.css";
 
 type DataProps = {
@@ -10,17 +9,17 @@ type DataProps = {
       date: string;
       title: string;
     };
-    body: string;
   };
+  children: ReactNode;
 };
 
-const Post = ({ data }: PageProps<DataProps>) => {
+const Post = ({ data, children }: PageProps<DataProps>) => {
   return (
     <Layout>
       <p className={textEnd}>
         <i>{data.mdx.frontmatter.date}</i>
       </p>
-      <MDXRenderer>{data.mdx.body}</MDXRenderer>
+      {children}
     </Layout>
   );
 };
@@ -32,7 +31,6 @@ export const query = graphql`
         title
         date(formatString: "MMMM D, YYYY")
       }
-      body
     }
   }
 `;

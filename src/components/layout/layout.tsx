@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { graphql, Link, useStaticQuery } from "gatsby";
 import { OutboundLink } from "gatsby-plugin-google-gtag";
 import { centeredText, navLinkText } from "../globals.module.css";
@@ -6,6 +6,7 @@ import { container, footer, heading, navLinks, navLinkItem } from "./layout.modu
 
 type Props = {
   pageTitle?: string;
+  children?: ReactNode;
 };
 
 const Layout: React.FC<Props> = ({ pageTitle, children }) => {

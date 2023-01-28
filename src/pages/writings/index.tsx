@@ -6,7 +6,9 @@ import { previewContainer, textEnd } from "./writings.module.css";
 type Node = {
   id: string;
   body: string;
-  slug: string;
+  fields: {
+    slug: string;
+  };
   frontmatter: {
     date: string;
     draft: boolean;
@@ -30,7 +32,7 @@ const Writings = ({ data }: PageProps<DataProps>) => {
             <div className={previewContainer} key={`${node.id}/${node.frontmatter.title}`}>
               <div key={node.id}>
                 <span>
-                  <Link to={`/writings/${node.slug}`}>{node.frontmatter.title}</Link>
+                  <Link to={`/writings${node.fields.slug}`}>{node.frontmatter.title}</Link>
                   <p className={textEnd}>{node.frontmatter.date}</p>
                 </span>
               </div>
@@ -45,12 +47,14 @@ const Writings = ({ data }: PageProps<DataProps>) => {
 };
 
 export const query = graphql`
-  query {
-    allMdx(sort: { fields: frontmatter___date, order: DESC }) {
+  {
+    allMdx(sort: { frontmatter: { date: DESC } }) {
       nodes {
         id
         body
-        slug
+        fields {
+          slug
+        }
         frontmatter {
           date(formatString: "MMMM D, YYYY")
           draft

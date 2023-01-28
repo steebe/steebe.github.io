@@ -26,6 +26,7 @@
     "build",
     "public",
     "**/gatsby-config.js",
+    "**/gatsby-node.js",
     "**/node_modules",
     "**/.*"
   ]

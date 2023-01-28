@@ -9,7 +9,14 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "prettier",
   ],
-  ignorePatterns: [".eslintrc.js", "gatsby-config.js", "build/", "public/", "src/generated/"],
+  ignorePatterns: [
+    ".eslintrc.js",
+    "gatsby-config.js",
+    "gatsby-node.js",
+    "build/",
+    "public/",
+    "src/generated/",
+  ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaFeatures: {
