@@ -33,8 +33,8 @@ const About = () => {
           <i>{String.fromCharCode(8482)}</i>&nbsp;
         </b>
         after occasionally drifting from city to city in search for a cure for boredom and ennui.
-        Thus far, the following have proved to be effective at quelling the symptoms, but not acted
-        as a full-blown cure:
+        Thus far, the following proved to be effective at quelling the symptoms, but not acted as a
+        full-blown cure:
         <ul>
           <li>Rochester, NY</li>
           <li>Buffalo, NY</li>
