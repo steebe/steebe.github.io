@@ -1,5 +1,5 @@
 .container {
-  font-family: "Andale Mono", "monospace";
+  font-family: 'Courier New', monospace;
   margin: auto;
   max-width: 500px;
   min-height: 100vh;
@@ -19,6 +19,7 @@
   display: flex;
   list-style: none;
   padding-left: 0;
+  padding-top: 20px;
 }
 .nav-link-item {
   padding-right: 2rem;

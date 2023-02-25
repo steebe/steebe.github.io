@@ -14,6 +14,12 @@ A revamping of Steve Bass’ personal site, using Gatsby.
 - `1.1.1`: "code changes," or **not a true patch**
    - Github Actions introduction to build & ship to `master` on push to `dev`, for Github Pages to then publish
    - https://github.com/enriikke/gatsby-gh-pages-action
+- `1.1.2`: Font updates, and small changes.
+   - Switched to [Web Safe Fonts](https://www.w3schools.com/cssref/css_websafe_fonts.php, to avoid Windows System Font issues
+      - Kept monospace for pages
+      - Changed to *Georgia* for blog posts, like the Apple bitch I am
+   - Replaced an image & updated details in the About page
+   - Learned [CSS animations](https://www.w3schools.com/cssref/css_animatable.php)
 
 ### Diary
 
