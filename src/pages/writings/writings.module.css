@@ -1,7 +1,9 @@
+.post {
+  font-family: Georgia, serif;
+}
 .preview-container {
   display: inline;
 }
-
 .text-end {
   text-align: end;
 }

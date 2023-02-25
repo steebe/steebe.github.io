@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import Layout from "../../components/layout/layout";
 import { graphql, PageProps } from "gatsby";
-import { textEnd } from "./writings.module.css";
+import { post, textEnd } from "./writings.module.css";
 
 type DataProps = {
   mdx: {
@@ -19,7 +19,7 @@ const Post = ({ data, children }: PageProps<DataProps>) => {
       <p className={textEnd}>
         <i>{data.mdx.frontmatter.date}</i>
       </p>
-      {children}
+      <div className={post}>{children}</div>
     </Layout>
   );
 };
