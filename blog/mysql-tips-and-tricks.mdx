@@ -9,7 +9,7 @@ My experiences at Rev360 (RevolutionEHR) and Mercato brought about developing fo
 
 ### Perform batch UPDATEs with a temp table
 
-When performing ```UPDATE```s against a table in bulk, MySQL is pretty non-performant when given a raw ```UPDATE``` statement with a ```WHERE``` clause:
+When performing `UPDATE`s against a table in bulk, MySQL is pretty non-performant when given a raw ```UPDATE``` statement with a ```WHERE``` clause:
 
 ```sql
 UPDATE A
@@ -53,3 +53,13 @@ WHEN B.type IN (2) AND B.other_id = A.other_id THEN 1
 ELSE 0
 END = 1;
 ```
+
+### Converting Timezones from UTC
+
+The arguments for the "from" and "to" timezones in `CONVERT_TZ` are the offsets from
+UTC. Therefore, `+00:00` is itself UTC, and `-07:00` would equate to PT in the U.S.
+
+```sql
+SELECT CONVERT_TZ(created, '+00:00','-07:00') FROM users;
+```
+
