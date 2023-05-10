@@ -20,6 +20,8 @@ A revamping of Steve Bass’ personal site, using Gatsby.
       - Changed to *Georgia* for blog posts, like the Apple bitch I am
    - Replaced an image & updated details in the About page
    - Learned [CSS animations](https://www.w3schools.com/cssref/css_animatable.php)
+- `1.1.3`: Just bloggin'...
+   - [ ] TODO: Improve the MDX processing component with anchoring and right-justified H2s
 
 ### Diary
 

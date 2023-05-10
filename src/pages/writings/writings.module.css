@@ -7,3 +7,20 @@
 .text-end {
   text-align: end;
 }
+
+table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+th {
+  padding-bottom: 10px;
+}
+
+td {
+  text-align: left;
+}
+
+.three-column td:nth-child(3) {
+  text-align: right;
+}

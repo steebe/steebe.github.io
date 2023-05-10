@@ -1,0 +1,147 @@
+---
+title: "Redshift Notes"
+date: "2023-05-09"
+---
+
+Below are helpful commands I don't want to forget for Redshift admin and use. Those interested in a small torching
+of Redshift as a product are welcome to read the [sibling post](./redshift-opinion).
+
+---
+## Querying
+
+### A Distinct "`DISTINCT`"
+
+**PostgreSQL** users might be familiar with the ability to use `DISTINCT` as an expression evaluator, rather
+than a clause, to reduce the result set down to records that only include the value evaluated by the
+expression.
+
+**MySQL** users might be used to leveraging `GROUP BY` in a different way than normal
+to do the same.
+
+I.E: if I have a table, `orders`:
+<table border={1} frame={"outside"}>
+    <tr>
+        <th>id</th>
+        <th>customerId</th>
+    </tr>
+    <tr>
+       <td>1</td>
+       <td>1</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>1</td>
+    </tr>
+</table>
+
+Our first customer was keeping the lights on, and proved that the `orders` table has a many:one
+relationship with the `customers` table.
+
+Suppose we need to pull the latest order for each customer, in a world where there is not just
+a sole customer placing orders. Additionally, the context of the report involves many other fields are being
+aggregated across dozens of other tables. `LIMIT 1` is not coming to the rescue.
+
+Postgres allows for:
+```sql
+SELECT
+    DISTINCT ON(customerId) customerId,
+    id
+FROM orders
+ORDER BY customerId, id DESC;
+```
+
+Okay, cool. Weird, but cool. The developer specifies they _only_ want unique `customerId` values
+in their results, but want the respective order information along with it. Postgres constructs
+groups based on the argument provided to `DISTINCT ON`, then omits any records that break the unique
+value specified. The `ORDER BY` gives the developer control over precedence on which distinct records
+to honor.
+
+MySQL perhaps helps visualize this better, literally making the developer create the groups themselves:
+`ORDER BY`:
+```sql
+WITH disctinct_customer_id_orders AS (
+    SELECT
+        id
+    FROM orders
+    GROUP BY customerId
+)
+SELECT * FROM distinct_customer_id_orders ORDER BY id DESC;
+```
+
+It's still not perfect, either, because the `ORDER BY` should happen in the first query, but hey, MySQL tries.
+
+#### Redshift does neither...
+
+...yet I don't hate how Redshift achieves the same outcome, strictly from the developer
+experience side of things:
+```sql
+SELECT
+    *
+FROM (
+    SELECT
+        id,
+        customerId,
+        RANK() OVER (PARTITION BY customerId ORDER BY id DESC) AS customer_id_rank
+    FROM orders
+) as ranked_orders
+WHERE ranked_orders.customer_id_rank = 1;
+```
+
+Where Redshift could have continued reinventing an already finished, rehashed,
+re-spoked wheel of relational-algebra powered query engines, it instead took the modest route.
+
+The developer is welcome to rewrite `GROUP BY` on Amazon's behalf. Also, the developer gets a bonus
+column in their toolkit to play with. It's okay that the result set grew though, because it's powered
+by a warehouse meant for Big Data!
+
+## Administering
+
+### Groups & Users
+```sql
+-- Create groups
+CREATE GROUP MY_GROUP [WITH USER (user1, user2,...)];
+
+-- View all user groups (as cluster admin)
+SELECT * from PG_GROUP;
+
+-- View all users in a group
+SELECT usename FROM pg_user, pg_group
+WHERE pg_user.usesysid = ANY(pg_group.grolist)
+  AND pg_group.groname = '<group-name>';
+
+-- Apply to entire schema
+GRANT ALL ON SCHEMA my_schema TO GROUP my_group;
+
+-- Apply to specific tables
+GRANT SELECT ON TABLE my_table TO my_user;
+
+-- Apply read-only access to specific (or all) tables in a single schema
+GRANT SELECT ON ALL TABLES IN SCHEMA my_schema TO my_user;
+
+-- Create user
+CREATE USER my_user PASSWORD '<pass-string>';
+
+-- Create user under specific group
+CREATE USER my_user IN GROUP my_group PASSWORD 'pass';
+
+-- Alter existing user
+ALTER USER my_user PASSWORD 'new-pass';
+```
+
+### Cluster Metadata
+```sql
+-- View tables within a Schema
+select distinct tablename from pg_table_def where schemaname = '<schema-name>';
+
+-- View all schemas in a cluster
+select * from pg_namespace;
+
+-- View connection activity within a cluster
+select * from stl_connection_log
+where recordtime > '2021-02-07 00:00:00' and username in ('user1', 'user2')
+order by recordtime DESC;
+```

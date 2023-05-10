@@ -1,0 +1,114 @@
+---
+title: "Redshift, Editorial"
+date: "2023-05-09"
+---
+
+# Redshift: Body Hiding as a Service
+
+When I started writing this post, it was to be a single, helpful guide for myself. Before long, it turned into a pretty
+gnarly rant about Redshift as a product, rather than a truly marvelous technical solution. The helpful guide still does
+exist, for what it's worth. Check it out as a [sibling post](./redshift-notes).
+
+In full disclosure: I do work with an organization that has adopted Redshift as an internal tool for various reporting
+purposes, as of mid-to-late 2021. In hindsight, the decision to bring it in as a tool likely had little to do with
+its prowess and capabilities, and more to do with certain personnel confusing the term "growth" for "infinite amounts of
+cash to blow".
+
+We leveraged I/O as follows:
+<table className={"three-column"} border={1} frame={"void"} rules={"rows"}>
+    <tr>
+        <th>Frequency</th>
+        <th>Operation</th>
+        <th>Mechanism</th>
+    </tr>
+    <tr>
+        <td>Once</td>
+        <td><b>WRITE</b> all tables from external, primary datasource(s)</td>
+        <td>AWS DMS + Vendor integration</td>
+    </tr>
+    <tr>
+        <td>Ad-hoc</td>
+        <td><b>WRITE</b> custom views to cache aggregate data used solely for reporting purposes</td>
+        <td>AWS Redshift Console + DBMS Tools</td>
+    </tr>
+    <tr>
+        <td>Ad-hoc</td>
+        <td><b>WRITE</b> DDL changes that have occurred on the primary datasource(s)</td>
+        <td>AWS DMS</td>
+    </tr>
+    <tr>
+        <td>Ad-hoc</td>
+        <td><b>READ</b> from various tables and views</td>
+        <td>DBMS Tools + other query tools</td>
+    </tr>
+    <tr>
+        <td>Regularly</td>
+        <td><b>READ</b> from various tables and views</td>
+        <td>Scheduled, and systemic processes</td>
+    </tr>
+</table>
+
+Those `WRITE` operations are inevitable, regardless of the destination data source, sure. But they specifically require
+going through AWS managed toolchains, either S3 for a `COPY` or via AWS Database Migration Service for table mapping
+or other ETL jobs.
+
+Allow me to pause my uppity browbeating for a moment. I personally find the tooling behind Redshift to be badass. It:
+- is run on its own custom flavor of SQL
+- can [allegedly] act as a decent "big-data" solution, offering scaling up to PB of data quickly
+- comes with training wheels:
+    - a phenomenal documentation layer
+    - a web-based query console
+
+Being badass never lets one off the hook, though. I'm sure you could ask Bezos.
+
+## PaaS vs. DBaaS
+Look at those `WRITE`s again. None of them are from an SDK. None of them are from a code base.
+In fact, it seems that (obligatory: _at the time of writing this_) Redshift really still doesn't cater to
+development teams as a primary data source for server applications.
+- Its SDKs cater to managing Redshift clusters and its assets, rather than invoking queries
+- The official Data API documentation includes instructions on how to map result sets by hand to JDBC objects
+- There is no official supported ORM for Redshift
+- The client-side SDK seems to be exactly what it would have taken to construct the Amazon internal cluster management
+UI within the AWS management console
+
+I'm not trying to build a case that Redshift was at all designed for the purpose of acting as a server application's
+primary datasource. It's important to acknowledge that it's a profoundly accessible data storage solution with seemingly
+great potential for scale, and capability of catering to various use-cases. Oh, also, by accessible I mean, "widely
+adoptable for those with a credit card burning a hole in their pocket."
+
+However, I think it seems obvious as to _why_ this purpose was not its goal in the first place. In fact, recalling the
+I/O operations I expressed above, it's truly no mystery as to why there are no official Amazon-led connectors/SDKs/ORM
+libraries that bind any particular language to Redshift capabilities:
+
+**_If the programmatic capabilities a developer has with a platform are to create and manage new infrastructure, then
+the platform remains a platform to be managed, rather than a tool to be leveraged._**
+
+It might be in Amazon's best interest, strictly from a margins and maintenance cost perspective, that Redshift remain a
+pure PaaS product. Unfortunately, when developers (and not data scientists) are the ones responsible for the operations
+involving Redshift I/O, it becomes painfully clear that it's simply a SQL database with a bunch of added cost.
+
+## DBaaS...
+Amazon's own Relational Database Service (RDS) contrasts with Redshift in ways that really helped me arrive to my
+conclusion.
+
+1. RDS virtual instances have smaller downtime on average over Redshift clusters during re-scaling/elastic resizing
+2. RDS is cheaper, on average, per use case (_at the time of writing_)
+   1. An RDS `db.t3.large` (1 core, 2vCPUs, 8GB RAM) is $0.136/hour, vs. the minimal cluster charge of $0.25/hour on Redshift
+3. Allegedly, Redshift's query optimizer, famous for making its "big data" capabilities a reality, make it slower on average
+than RDS for queries under the several million record count
+
+Redshift was marketed well, and perhaps even had the best of intentions to disrupt the market of big data tools. It
+certainly smells like a big custom SQL database cloud with purposeful dependencies that hike the cost of using it
+effectively. It seems that it is most effectively serving entities who have so much data to play with that dumping it
+in a central place to stream outwards in creative ways. I hope their pockets are deep. So does Amazon, I'm sure.
+
+## References
+- [Redshift Rank](https://docs.aws.amazon.com/redshift/latest/dg/r_WF_RANK.html)
+- [Redshift Data API](https://drive.google.com/file/d/1IliGkQIwR0h3EjXoA9VysJm9QIqdBKGN/view?usp=share_link)
+- [Redshift SDK Examples](https://drive.google.com/file/d/18UDxpeWf7nJSs01qHaGm0-MW8PMEVTdg/view?usp=share_link)
+- [Redshift Java SDK Overview](https://drive.google.com/file/d/1nG9r9bQvD8NN_m22jpk2J2KoxY6ggKej/view?usp=share_link)
+- [Redshift Python SDK Overview](https://drive.google.com/file/d/1ZlVAF3TvrXLSb-V4jGkc89RJCfXmwSVO/view?usp=share_link)
+- [Redshift Client-side SDK](https://drive.google.com/file/d/1LwYngIharMybl_PHUEQzvyvsT3YGP3oa/view?usp=share_link)
+- [RDS vs. Redshift Analysis](https://drive.google.com/file/d/19cm58920poSyw_Z3QwvmPKG57bvlqhwa/view?usp=share_link)
+   - This is from [Hevo](https://hevodata.com/), an ETL and "data pipeline" platform. Not necessarily a competitor to, and
+lists Redshift as a source they work with out of the box. Take that as you will...
