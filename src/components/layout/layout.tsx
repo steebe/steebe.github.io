@@ -66,7 +66,7 @@ const Layout: React.FC<Props> = ({ pageTitle, children }) => {
           GITHUB
         </OutboundLink>
         <OutboundLink
-          href="https://www.linkedin.com/in/bassman5001"
+          href="https://www.linkedin.com/in/steebe"
           target="_blank"
           className={navLinkText}
           rel="noreferrer"
