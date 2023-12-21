@@ -1,0 +1,23 @@
+.container {
+  font-family: "Courier New", monospace;
+  margin: auto;
+  position: relative;
+}
+.content-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.description {
+  flex: 0 2 auto;
+  font-weight: lighter;
+  position: relative;
+  padding: 0 20px;
+}
+.image {
+  flex: 2 0 auto;
+  box-shadow: 10px;
+  position: relative;
+}

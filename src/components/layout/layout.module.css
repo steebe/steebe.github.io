@@ -10,17 +10,16 @@
   position: absolute;
   width: 100%;
 }
-.heading {
-  color: darkslategrey;
-  font-weight: lighter;
-  text-align: center;
-}
 .nav-links {
   display: flex;
   list-style: none;
   padding-left: 0;
   padding-top: 20px;
+  padding-bottom: 20px;
 }
 .nav-link-item {
   padding-right: 2rem;
+}
+.resume {
+  padding-bottom: 20px;
 }

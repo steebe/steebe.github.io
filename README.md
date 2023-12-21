@@ -22,6 +22,7 @@ A revamping of Steve Bass’ personal site, using Gatsby.
    - Learned [CSS animations](https://www.w3schools.com/cssref/css_animatable.php)
 - `1.1.3`: Just bloggin'...
    - [ ] TODO: Improve the MDX processing component with anchoring and right-justified H2s
+- `1.2.0`: Gatsby updates, Gatsby blog post, Tools section
 
 ### Diary
 
