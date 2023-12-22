@@ -1,0 +1,253 @@
+---
+title: Gatsby, We Need To Talk
+date: "2023-12-21"
+---
+
+# It's Not Me, It's You
+
+For context, back in 2021 I decided to switch my site from vanilla HTML + CSS (with a Jekyll blog under one path)
+to a Gatsby site. 
+
+## The Appeal
+
+Our front-end team at work became pretty stacked, and I generally only tapped in to commit build, infra, or
+repository hygiene updates. I was craving being able to touch React. I'd stumbled upon Hugo and Gatsby, wanted to
+tinker. Ultimately, Gatsby _seemed_ the most approachable of the two. Translation: its marketing worked on me.
+
+At first, after adopting it, I thought that I just was rusty in the front-end space. I thought it was reasonable
+that I spent more time digging through the four different doc sets required to get started and up and running than I
+did writing React code or CSS.
+
+- Official Gatsby guides (to know what to do to rewrite my site with Gatsby)
+- Adjacent Gatsby references that the guides frequently link to (because I guess their official guides often
+need supplemental help, and perhaps different Gatsby contributors had different ideas on how to structure docs?)
+- Gatsby plugin homepages/documentation (because Gatbsy seems to have thought federated was the way to go for 
+core site generator capabilities)
+- Front-end tooling documentation (because I am now supporting a React app to write personal website updates)
+
+That's because, at some points, it felt kind of intruiging! I wasn't stuck hacking at HTML and CSS, I was spending
+my time "coding"! Everything is smooth and simple in the end, after my first build with CI/CD:
+
+- To make blog posts, I write a new `.mdx`, push, et. voila!
+- To make site updates, I write React relatively quickly, push, et. voila!
+- ___To keep the site safe and up-to-date, I watch for `npm` warnings, errors, or security flaws___
+
+## The Downfall
+
+Two years later, and that last bullet is killing me. Every time I sit down to upgrade all things Gatsby, I find myself
+in an annoying sinkhole of problems introduced by the framework itself. The latest snafu is what put the final nail in the
+coffin.
+
+#### Updating from one minor version to another
+
+It should be this easy:
+
+1. Update Gatsby and its plugins
+
+```shell
+$ npm update gatsby \
+           gatsby-plugin-google-gtag \
+           gatsby-plugin-image \
+           gatsby-plugin-mdx \
+           gatsby-plugin-sharp \
+           gatsby-remark-images \
+           gatsby-source-filesystem
+```
+
+---
+
+2. Update my toolchain
+
+```shell
+$ npm update -D eslint \
+              eslint-config-prettier \
+              eslint-plugin-prettier \
+              eslint-plugin-react \
+              prettier \
+              typescript \
+              @typescript-eslint/eslint-plugin \
+              @typescript-eslint/parser
+```
+
+Neither of these commands work while Gatsby was pinned to `5.5.0`, and while all other dependencies at least
+a minor version behind. Okay, I guess that's not the end of the world. But why won't they work? Because 
+Gatsby's core library has conflicting dev dependencies, so their developers are happy. Okay, I still 
+understand. I will update by hand.
+
+---
+
+3. Update `package.json` with entirely new version numbers for everything, and `npm i`
+
+lol
+
+```shell
+npm WARN ERESOLVE overriding peer dependency
+npm WARN While resolving: eslint-config-react-app@6.0.0
+npm WARN Found: @typescript-eslint/eslint-plugin@5.62.0
+npm WARN node_modules/gatsby/node_modules/@typescript-eslint/eslint-plugin
+npm WARN   @typescript-eslint/eslint-plugin@"^5.60.1" from gatsby@5.13.0
+npm WARN   node_modules/gatsby
+npm WARN     gatsby@"^5.13.0" from the root project
+npm WARN     10 more (babel-plugin-remove-graphql-queries, ...)
+npm WARN 
+npm WARN Could not resolve dependency:
+npm WARN peer @typescript-eslint/eslint-plugin@"^4.0.0" from eslint-config-react-app@6.0.0
+npm WARN node_modules/gatsby/node_modules/eslint-config-react-app
+npm WARN   eslint-config-react-app@"^6.0.0" from gatsby@5.13.0
+npm WARN   node_modules/gatsby
+npm WARN 
+npm WARN Conflicting peer dependency: @typescript-eslint/eslint-plugin@4.33.0
+npm WARN node_modules/@typescript-eslint/eslint-plugin
+npm WARN   peer @typescript-eslint/eslint-plugin@"^4.0.0" from eslint-config-react-app@6.0.0
+npm WARN   node_modules/gatsby/node_modules/eslint-config-react-app
+npm WARN     eslint-config-react-app@"^6.0.0" from gatsby@5.13.0
+npm WARN     node_modules/gatsby
+npm WARN ERESOLVE overriding peer dependency
+npm WARN While resolving: eslint-config-react-app@6.0.0
+npm WARN Found: @typescript-eslint/parser@5.62.0
+npm WARN node_modules/gatsby/node_modules/@typescript-eslint/parser
+npm WARN   @typescript-eslint/parser@"^5.60.1" from gatsby@5.13.0
+npm WARN   node_modules/gatsby
+npm WARN     gatsby@"^5.13.0" from the root project
+npm WARN     10 more (babel-plugin-remove-graphql-queries, ...)
+npm WARN   1 more (@typescript-eslint/eslint-plugin)
+npm WARN 
+npm WARN Could not resolve dependency:
+npm WARN peer @typescript-eslint/parser@"^4.0.0" from eslint-config-react-app@6.0.0
+npm WARN node_modules/gatsby/node_modules/eslint-config-react-app
+npm WARN   eslint-config-react-app@"^6.0.0" from gatsby@5.13.0
+npm WARN   node_modules/gatsby
+npm WARN 
+npm WARN Conflicting peer dependency: @typescript-eslint/parser@4.33.0
+npm WARN node_modules/@typescript-eslint/parser
+npm WARN   peer @typescript-eslint/parser@"^4.0.0" from eslint-config-react-app@6.0.0
+npm WARN   node_modules/gatsby/node_modules/eslint-config-react-app
+npm WARN     eslint-config-react-app@"^6.0.0" from gatsby@5.13.0
+npm WARN     node_modules/gatsby
+npm WARN ERESOLVE overriding peer dependency
+npm WARN While resolving: react-server-dom-webpack@0.0.0-experimental-c8b778b7f-20220825
+npm WARN Found: react@18.2.0
+npm WARN node_modules/react
+npm WARN   react@"^18.2.0" from the root project
+npm WARN   10 more (@gatsbyjs/reach-router, @mdx-js/react, gatsby, ...)
+npm WARN 
+npm WARN Could not resolve dependency:
+npm WARN peer react@"0.0.0-experimental-c8b778b7f-20220825" from react-server-dom-webpack@0.0.0-experimental-c8b778b7f-20220825
+npm WARN node_modules/gatsby/node_modules/react-server-dom-webpack
+npm WARN   react-server-dom-webpack@"0.0.0-experimental-c8b778b7f-20220825" from gatsby@5.13.0
+npm WARN   node_modules/gatsby
+npm WARN 
+npm WARN Conflicting peer dependency: react@0.0.0-experimental-c8b778b7f-20220825
+npm WARN node_modules/react
+npm WARN   peer react@"0.0.0-experimental-c8b778b7f-20220825" from react-server-dom-webpack@0.0.0-experimental-c8b778b7f-20220825
+npm WARN   node_modules/gatsby/node_modules/react-server-dom-webpack
+npm WARN     react-server-dom-webpack@"0.0.0-experimental-c8b778b7f-20220825" from gatsby@5.13.0
+npm WARN     node_modules/gatsby
+```
+
+Fine, whatever, I don't want to use Gatsby's version of ES Lint plugins or TypeScript plugins. It's my site, not
+a Gatsby commit that I'm writing changes for. Okay, I'll ignore these errors.
+
+--- 
+
+4. Get yelled at about vulnerabilities
+
+```shell
+14 moderate severity vulnerabilities
+
+To address issues that do not require attention, run:
+  npm audit fix
+```
+
+Yep:
+
+```shell
+$ npm audit fix
+```
+
+There are still 12 moderate severity vulnerabilities.
+
+Okay, still a ton of warnings that I don't need to actually care about, but will need to read each time I revisit
+My site's dependencies. 
+
+Fun stuff.
+
+---
+
+5. Does the app build now, though?
+
+```shell
+$ npm run build # (this is my script for a `gatsby build`, per their framework behavior)
+
+...build output...
+
+_Multiple instances of_:
+
+ ERROR  UNKNOWN
+
+(node:12600) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+...build output...
+```
+
+__Shit, why?__
+
+```shell
+$ npx npm-why punycode
+```
+
+Oh, okay. 3106 lines of output. Each Gatsby dependency I leverage consumes `punycode` through its dependencies.
+Nice. 
+
+#### Considering My Options
+
+At this point, I'm regretting having gone down the mental road of choosing "dev friendliness" over site stability
+and maintenance. By not owning Gatsby, I have the luxury of simply using its features, but I also have the side-effect
+of not having any control over my own developer experience or my own site's stability in real time.
+
+I can't tell if I'm happy about this realization, or nervous that I've become one of _them_:
+
+- [Why You Should Write Your Own Static Site Generator](https://news.ycombinator.com/item?id=38126210)
+- [Why I built my own static site generator](https://news.ycombinator.com/item?id=28837760)
+- [I Built My Own Shitty Static Site Generator](https://news.ycombinator.com/item?id=25227181)
+- [Show HN: Blades - fast static site generator written in Rust](https://news.ycombinator.com/item?id=24760528)
+- ["Make" as a static site generator](https://news.ycombinator.com/item?id=37454853)
+
+## In The End
+
+I can continue relying on Gatsby for super easy minor updates to my web pages. I cannot rely on it for the very
+"magic" that turned me on to it: A simple SSG that offers a great dev experience.
+
+When my own developer configs 
+create endless warnings and errors from the most essential part of Gatsby: its position in the JavaScript ecosystem,
+I can't help but feel it has lost its edge. I drank the Kool Aid. Now I have a belly ache.
+
+
+---
+
+---
+
+##### P.S.
+
+This ended up being my first blog post in a while, and one that includes a lot of nested code blocks.
+To improve readability, I wanted to adopt syntax highlighting and a background color for contrast against "normal
+text". There was an update that was at one point compatible with `gatsby-plugin-mdx` via `gatsby-remark-highlight-code`
+that now breaks with the latest version of Gatsby (`5.13.0` at time of writing). The workarounds include:
+
+- Using the MDX rehype-highlight library directly, and injecting it into the `gatsby-plugin-mdx` `options.rehypePlugins`
+field
+  - This now requires `require("rehype-highlight")`
+    - This is no longer compatible with the latest version of Gatsby, and these workarounds break:
+      - Asynchronously promise the Gatsby module config to dynamically `import rehypeHighlight`
+        - (breaks the Gatsby config import entirely)
+      - Using babel to create gatsby-config.js as a module 
+        - (breaks the GraphQL library during build phase)
+
+- Writing an entire MDX parser to look for code blocks, and apply custom CSS
+  - This can employ the help of other libraries, like Prism, to do the styling
+  - If this were started, why stop? Why not extend the parsing to a larger engine? It could be some sort of content parser
+  plus content renderer. It could generate content based on some templated files. It could create an entire static site 
+  based on the contents of a folder...
+
+Oh...

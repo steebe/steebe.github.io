@@ -1,8 +1,13 @@
 .centered-text {
   text-align: center;
 }
+
 .nav-link-text {
   color: darkslategrey;
+}
+
+.nav-link-current-item {
+  text-decoration: none;
 }
 
 .hello {

@@ -4,13 +4,13 @@ import { StaticImage } from "gatsby-plugin-image";
 
 const About = () => {
   return (
-    <Layout pageTitle="ABOUT">
+    <Layout>
       <p>
         Steve Bass is a software developer, working remotely for{" "}
         <a href="https://mercato.com" target="_blank" rel="noreferrer">
           Mercato, Incorporated
         </a>
-        . He has been in industry for over six years, across four domains of business.
+        . He has been in industry for over eight years, across four domains of business.
       </p>
       <StaticImage src="../images/me_booth.jpeg" alt="Steve, eating some sunshine" />
       <p>

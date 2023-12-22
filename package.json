@@ -1,15 +1,15 @@
 {
-  "name": "stevebass.me",
-  "version": "1.1.3",
-  "private": true,
-  "description": "A redux of my personal site, with Gatsby",
   "author": "Steve Bass",
+  "description": "A Gatsby site for https://steebe.dev",
   "keywords": [
     "gatsby",
     "steve",
     "bass",
     "steebe"
   ],
+  "name": "steebe.dev",
+  "private": true,
+  "version": "1.2.0",
   "scripts": {
     "build": "gatsby build",
     "clean": "gatsby clean",
@@ -17,29 +17,31 @@
     "dev": "gatsby develop",
     "lint": "eslint . && prettier --check src",
     "lint-fix": "eslint . --fix && prettier --write src",
+    "purge": "gatsby clean && rm -rf node_modules/",
     "serve": "gatsby serve",
     "start": "gatsby develop"
   },
   "dependencies": {
     "@mdx-js/react": "^2.2.1",
-    "gatsby": "^5.5.0",
+    "classnames": "^2.3.2",
+    "gatsby": "^5.13.0",
     "gatsby-plugin-google-gtag": "^5.5.0",
     "gatsby-plugin-image": "^3.5.0",
     "gatsby-plugin-mdx": "^5.5.0",
     "gatsby-plugin-sharp": "^5.5.0",
-    "gatsby-remark-images": "^7.5.0",
+    "gatsby-remark-images": "^7.12.3",
     "gatsby-source-filesystem": "^5.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.12.1",
-    "@typescript-eslint/parser": "^5.12.1",
-    "eslint": "^7.32.0",
-    "eslint-config-prettier": "^8.4.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.29.2",
-    "prettier": "2.5.1",
-    "typescript": "^4.8.3"
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.1",
+    "eslint-plugin-react": "^7.33.2",
+    "prettier": "3.1.1",
+    "typescript": "^5.3.3"
   }
 }

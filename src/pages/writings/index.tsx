@@ -25,7 +25,7 @@ type DataProps = {
 const Writings = ({ data }: PageProps<DataProps>) => {
   const eligibleNodes = data.allMdx.nodes.filter((node) => !node.frontmatter.draft);
   return (
-    <Layout pageTitle="RAMBLINGS">
+    <Layout>
       {eligibleNodes.map((node, index) => {
         if (!node.frontmatter.draft) {
           return (
