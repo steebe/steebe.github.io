@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { graphql, Link, useStaticQuery } from "gatsby";
+import { Link } from "gatsby";
 import { OutboundLink } from "gatsby-plugin-google-gtag";
 import { centeredText, navLinkCurrentItem, navLinkText } from "../globals.module.css";
 import { container, footer, navLinks, navLinkItem, resume } from "./layout.module.css";
@@ -9,27 +9,38 @@ type Props = {
   children?: ReactNode;
 };
 
-const Layout: React.FC<Props> = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-          description
-        }
-      }
-    }
-  `);
+const SITE_NAME_ROOT = "steebe - ";
 
+const PATHS = {
+  HOME: SITE_NAME_ROOT + "HOME",
+  TOOLS: SITE_NAME_ROOT + "TOOLS",
+  BLOG: SITE_NAME_ROOT + "BLOG",
+  ABOUT: SITE_NAME_ROOT + "ABOUT",
+};
+
+const Layout: React.FC<Props> = ({ children }) => {
   const page = typeof window !== "undefined" ? window.location.pathname : undefined;
   const isTools = page?.includes("tool");
   const isAbout = page?.includes("about");
-  const isBlogRoot = page?.endsWith("writings") || page?.endsWith("writings/");
+  const isBlogRoot =
+    page?.endsWith("writings") || page?.endsWith("writings/") || page?.includes("writings");
   const isHome = page === "/" || (!isTools && !isAbout && !isBlogRoot);
+
+  let path: string;
+
+  if (isTools) {
+    path = PATHS.TOOLS;
+  } else if (isAbout) {
+    path = PATHS.ABOUT;
+  } else if (isBlogRoot) {
+    path = PATHS.BLOG;
+  } else {
+    path = PATHS.HOME;
+  }
 
   return (
     <div className={container}>
-      <title>{data.site.siteMetadata.title}</title>
+      <title>{path}</title>
       <nav>
         <ul className={navLinks}>
           <li className={navLinkItem}>

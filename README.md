@@ -3,26 +3,28 @@
 A revamping of Steve Bass’ personal site, using Gatsby.
 
 ### Release Notes
-- `1.0.0`: Bootstrapping Gatsby
-   - Basic tweaks to the default styles and mechanisms leveraged to get a site off the ground, in the way I want it 
-     to look
-- `1.1.0`: Upgrading Gatsby to 5.5, and its supporting libraries accordingly
-   - [Upgrade guide](https://www.gatsbyjs.com/docs/reference/release-notes/migrating-from-v4-to-v5/)
-   - [MDX Plugin Upgrade](https://www.gatsbyjs.com/plugins/gatsby-plugin-mdx/)
-   - [Important hack for MDX](https://paulie.dev/posts/2022/09/mdx-2-breaking-changes-and-gatsby-plugin-mdx-v4-slug/)
-      - Additional workaround: {mdx.slug}.tsx --> {mdx.fields__slug}.tsx
-- `1.1.1`: "code changes," or **not a true patch**
-   - Github Actions introduction to build & ship to `master` on push to `dev`, for Github Pages to then publish
-   - https://github.com/enriikke/gatsby-gh-pages-action
-- `1.1.2`: Font updates, and small changes.
-   - Switched to [Web Safe Fonts](https://www.w3schools.com/cssref/css_websafe_fonts.php, to avoid Windows System Font issues
-      - Kept monospace for pages
-      - Changed to *Georgia* for blog posts, like the Apple bitch I am
-   - Replaced an image & updated details in the About page
-   - Learned [CSS animations](https://www.w3schools.com/cssref/css_animatable.php)
-- `1.1.3`: Just bloggin'...
-   - [ ] TODO: Improve the MDX processing component with anchoring and right-justified H2s
+
+- `1.2.1`: Fixing current page underline when on specific blog post. Adding page-specific titles.
 - `1.2.0`: Gatsby updates, Gatsby blog post, Tools section
+- `1.1.3`: Just bloggin'...
+  - [ ] TODO: Improve the MDX processing component with anchoring and right-justified H2s
+- `1.1.2`: Font updates, and small changes.
+  - Switched to [Web Safe Fonts](https://www.w3schools.com/cssref/css_websafe_fonts.php, to avoid Windows System Font issues
+    - Kept monospace for pages
+    - Changed to _Georgia_ for blog posts, like the Apple bitch I am
+  - Replaced an image & updated details in the About page
+  - Learned [CSS animations](https://www.w3schools.com/cssref/css_animatable.php)
+- `1.1.1`: "code changes," or **not a true patch**
+  - Github Actions introduction to build & ship to `master` on push to `dev`, for Github Pages to then publish
+  - https://github.com/enriikke/gatsby-gh-pages-action
+- `1.1.0`: Upgrading Gatsby to 5.5, and its supporting libraries accordingly
+  - [Upgrade guide](https://www.gatsbyjs.com/docs/reference/release-notes/migrating-from-v4-to-v5/)
+  - [MDX Plugin Upgrade](https://www.gatsbyjs.com/plugins/gatsby-plugin-mdx/)
+  - [Important hack for MDX](https://paulie.dev/posts/2022/09/mdx-2-breaking-changes-and-gatsby-plugin-mdx-v4-slug/)
+    - Additional workaround: {mdx.slug}.tsx --> {mdx.fields\_\_slug}.tsx
+- `1.0.0`: Bootstrapping Gatsby
+  - Basic tweaks to the default styles and mechanisms leveraged to get a site off the ground, in the way I want it
+    to look
 
 ### Diary
 
@@ -36,24 +38,25 @@ tools such as Gatsby and Svelte.
 I was aware of Gatsby's potential. Raw power, fueled by GraphQL and a ferocious community. Power that promised a simple
 development experience for a complex and capable result: a static site on steroids.
 
-Perhaps it was my stellar experience working with Next.js that got my hopes up for Gatsby, but I was shocked at a few 
+Perhaps it was my stellar experience working with Next.js that got my hopes up for Gatsby, but I was shocked at a few
 attributes I noticed out of the gate:
+
 - Complex
-   - The docs to get things off the ground were (at the time, with Gatsby v4) absolutely massive. Nothing was simple.
+  - The docs to get things off the ground were (at the time, with Gatsby v4) absolutely massive. Nothing was simple.
 - Scattered
-   - For a framework that claims to offer so much, its functionality sure seemed to not be in one place. Plugins galore 
-power this beast.
+  - For a framework that claims to offer so much, its functionality sure seemed to not be in one place. Plugins galore
+    power this beast.
 - Ever breaking
-  - Each major release (and yes, I understand the point of marking  a release as "major", thank you) contains massive
-breaking changes. The more plugins you use for functionality that's core to Gatsby, the longer it will take to address
-such changes.
+  - Each major release (and yes, I understand the point of marking a release as "major", thank you) contains massive
+    breaking changes. The more plugins you use for functionality that's core to Gatsby, the longer it will take to address
+    such changes.
 - Not my job
   - I've encountered a few scenarios, mostly within the "getting started" guides or upgrade guides, in which the author
-of the guide offered no tangible understanding to a step or workaround, and rather linked to a library or listed steps
-provided by a community developer. Obviously, that's how the realm of programming gets things done in general (on top of
-existing solutions), it just feels lazy that a guide would be a place where an author cops out.
-
+    of the guide offered no tangible understanding to a step or workaround, and rather linked to a library or listed steps
+    provided by a community developer. Obviously, that's how the realm of programming gets things done in general (on top of
+    existing solutions), it just feels lazy that a guide would be a place where an author cops out.
 
 ### Technologies
+
 - Gatsby
 - Node.js
