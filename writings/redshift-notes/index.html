@@ -1,0 +1,118 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 5.13.0"/><style data-href="/styles.d18769d0c55a489926b9.css" data-identity="gatsby-global-css">.globals-module--centered-text--f1021{text-align:center}.globals-module--nav-link-text--78591{color:#2f4f4f}.globals-module--nav-link-current-item--312f0{text-decoration:none}.globals-module--hello--72374{animation:globals-module--flare--21b39 3s ease;animation-fill-mode:forwards;animation-iteration-count:1}@keyframes globals-module--flare--21b39{0%{opacity:0}to{font-size:20px;opacity:1}}.layout-module--container--4f29e{font-family:Courier New,monospace;margin:auto;max-width:500px;min-height:100vh;position:relative}.layout-module--footer--f8364{padding:20px 0;position:absolute;width:100%}.layout-module--nav-links--a181c{display:flex;list-style:none;padding-bottom:20px;padding-left:0;padding-top:20px}.layout-module--nav-link-item--fbd31{padding-right:2rem}.layout-module--resume--53a60{padding-bottom:20px}.tools-module--container--f04d6{font-family:Courier New,monospace;margin:auto;position:relative}.tools-module--content-container--d2a7e{align-items:center;display:flex;flex-direction:row;justify-content:center;position:relative}.tools-module--description--6df14{flex:0 2 auto;font-weight:lighter;padding:0 20px;position:relative}.tools-module--image--1f058{box-shadow:10px;flex:2 0 auto;position:relative}.writings-module--post--fa2ad{font-family:Georgia,serif}.writings-module--preview-container--33267{display:inline}.writings-module--text-end--d98ff{text-align:end}table{table-layout:fixed;width:100%}th{padding-bottom:10px}td{text-align:left}.writings-module--three-column--7af25 td:nth-child(3){text-align:right}</style><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){const t=e.target;if(void 0===t.dataset.mainImage)return;if(void 0===t.dataset.gatsbyImageSsr)return;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><link rel="preconnect" href="https://www.googletagmanager.com"/><link rel="dns-prefetch" href="https://www.googletagmanager.com"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-J596TM92WV"></script><script>
+      
+      
+      if(true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-J596TM92WV', {"send_page_view":false});
+      }
+      </script></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="layout-module--container--4f29e"><title>steebe - HOME</title><nav><ul class="layout-module--nav-links--a181c"><li class="layout-module--nav-link-item--fbd31"><a class="globals-module--nav-link-text--78591 globals-module--nav-link-current-item--312f0" href="/">HOME</a></li><li class="layout-module--nav-link-item--fbd31"><a class="globals-module--nav-link-text--78591" href="/tools">TOOLS</a></li><li class="layout-module--nav-link-item--fbd31"><a class="globals-module--nav-link-text--78591" href="/writings">BLOG</a></li><li class="layout-module--nav-link-item--fbd31"><a class="globals-module--nav-link-text--78591" href="/about">ABOUT</a></li></ul></nav><main><p class="writings-module--text-end--d98ff"><i>May 9, 2023</i></p><div class="writings-module--post--fa2ad"><p>Below are helpful commands I don&#x27;t want to forget for Redshift admin and use. Those interested in a small torching
+of Redshift as a product are welcome to read the <a href="./redshift-opinion">sibling post</a>.</p>
+<hr/>
+<h2>Querying</h2>
+<h3>A Distinct &quot;<code>DISTINCT</code>&quot;</h3>
+<p><strong>PostgreSQL</strong> users might be familiar with the ability to use <code>DISTINCT</code> as an expression evaluator, rather
+than a clause, to reduce the result set down to records that only include the value evaluated by the
+expression.</p>
+<p><strong>MySQL</strong> users might be used to leveraging <code>GROUP BY</code> in a different way than normal
+to do the same.</p>
+<p>I.E: if I have a table, <code>orders</code>:</p>
+<table border="1" frame="outside"><tr><th>id</th><th>customerId</th></tr><tr><td>1</td><td>1</td></tr><tr><td>2</td><td>1</td></tr><tr><td>3</td><td>1</td></tr></table>
+<p>Our first customer was keeping the lights on, and proved that the <code>orders</code> table has a many:one
+relationship with the <code>customers</code> table.</p>
+<p>Suppose we need to pull the latest order for each customer, in a world where there is not just
+a sole customer placing orders. Additionally, the context of the report involves many other fields are being
+aggregated across dozens of other tables. <code>LIMIT 1</code> is not coming to the rescue.</p>
+<p>Postgres allows for:</p>
+<pre><code class="language-sql">SELECT
+    DISTINCT ON(customerId) customerId,
+    id
+FROM orders
+ORDER BY customerId, id DESC;
+</code></pre>
+<p>Okay, cool. Weird, but cool. The developer specifies they <em>only</em> want unique <code>customerId</code> values
+in their results, but want the respective order information along with it. Postgres constructs
+groups based on the argument provided to <code>DISTINCT ON</code>, then omits any records that break the unique
+value specified. The <code>ORDER BY</code> gives the developer control over precedence on which distinct records
+to honor.</p>
+<p>MySQL perhaps helps visualize this better, literally making the developer create the groups themselves:
+<code>ORDER BY</code>:</p>
+<pre><code class="language-sql">WITH disctinct_customer_id_orders AS (
+    SELECT
+        id
+    FROM orders
+    GROUP BY customerId
+)
+SELECT * FROM distinct_customer_id_orders ORDER BY id DESC;
+</code></pre>
+<p>It&#x27;s still not perfect, either, because the <code>ORDER BY</code> should happen in the first query, but hey, MySQL tries.</p>
+<h4>Redshift does neither...</h4>
+<p>...yet I don&#x27;t hate how Redshift achieves the same outcome, strictly from the developer
+experience side of things:</p>
+<pre><code class="language-sql">SELECT
+    *
+FROM (
+    SELECT
+        id,
+        customerId,
+        RANK() OVER (PARTITION BY customerId ORDER BY id DESC) AS customer_id_rank
+    FROM orders
+) as ranked_orders
+WHERE ranked_orders.customer_id_rank = 1;
+</code></pre>
+<p>Where Redshift could have continued reinventing an already finished, rehashed,
+re-spoked wheel of relational-algebra powered query engines, it instead took the modest route.</p>
+<p>The developer is welcome to rewrite <code>GROUP BY</code> on Amazon&#x27;s behalf. Also, the developer gets a bonus
+column in their toolkit to play with. It&#x27;s okay that the result set grew though, because it&#x27;s powered
+by a warehouse meant for Big Data!</p>
+<h2>Administering</h2>
+<h3>Groups &amp; Users</h3>
+<pre><code class="language-sql">-- Create groups
+CREATE GROUP MY_GROUP [WITH USER (user1, user2,...)];
+
+-- View all user groups (as cluster admin)
+SELECT * from PG_GROUP;
+
+-- View all users in a group
+SELECT usename FROM pg_user, pg_group
+WHERE pg_user.usesysid = ANY(pg_group.grolist)
+  AND pg_group.groname = &#x27;&lt;group-name&gt;&#x27;;
+
+-- Apply to entire schema
+GRANT ALL ON SCHEMA my_schema TO GROUP my_group;
+
+-- Apply to specific tables
+GRANT SELECT ON TABLE my_table TO my_user;
+
+-- Apply read-only access to specific (or all) tables in a single schema
+GRANT SELECT ON ALL TABLES IN SCHEMA my_schema TO my_user;
+
+-- Create user
+CREATE USER my_user PASSWORD &#x27;&lt;pass-string&gt;&#x27;;
+
+-- Create user under specific group
+CREATE USER my_user IN GROUP my_group PASSWORD &#x27;pass&#x27;;
+
+-- Alter existing user
+ALTER USER my_user PASSWORD &#x27;new-pass&#x27;;
+</code></pre>
+<h3>Cluster Metadata</h3>
+<pre><code class="language-sql">-- View tables within a Schema
+select distinct tablename from pg_table_def where schemaname = &#x27;&lt;schema-name&gt;&#x27;;
+
+-- View all schemas in a cluster
+select * from pg_namespace;
+
+-- View connection activity within a cluster
+select * from stl_connection_log
+where recordtime &gt; &#x27;2021-02-07 00:00:00&#x27; and username in (&#x27;user1&#x27;, &#x27;user2&#x27;)
+order by recordtime DESC;
+</code></pre></div></main><footer class="globals-module--centered-text--f1021 layout-module--footer--f8364"><div class="layout-module--resume--53a60"><a href="./steve_bass_resume.pdf" class="globals-module--nav-link-text--78591" target="_blank">RESUME</a></div><a href="https://www.github.com/steebe" target="_blank" class="globals-module--nav-link-text--78591 layout-module--nav-link-item--fbd31" rel="noreferrer">GITHUB</a><a href="https://www.linkedin.com/in/steebe" target="_blank" class="globals-module--nav-link-text--78591" rel="noreferrer">LINKEDIN</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/writings/redshift-notes";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+          <script
+            id="gatsby-chunk-mapping"
+          >
+            window.___chunkMapping="{\"app\":[\"/app-4510ebf38cfaafc6e466.js\"],\"component---src-pages-404-tsx\":[\"/component---src-pages-404-tsx-58970f1b169344cc125f.js\"],\"component---src-pages-about-tsx\":[\"/component---src-pages-about-tsx-d2bcc774728d84f253c4.js\"],\"component---src-pages-index-tsx\":[\"/component---src-pages-index-tsx-38c42eee603c15516c7e.js\"],\"component---src-pages-tools-tsx\":[\"/component---src-pages-tools-tsx-bb08ec62806b805dba19.js\"],\"component---src-pages-writings-index-tsx\":[\"/component---src-pages-writings-index-tsx-71211a80dc9e843b62b6.js\"],\"component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-2023-swoosh-mdx\":[\"/component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-2023-swoosh-mdx-b04110fc0c067be29871.js\"],\"component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-apple-mdx\":[\"/component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-apple-mdx-0599f9ea02776efb39eb.js\"],\"component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-broken-windows-mdx\":[\"/component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-broken-windows-mdx-1c1fccd48fa0c0caa90f.js\"],\"component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-burning-images-to-usb-mdx\":[\"/component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-burning-images-to-usb-mdx-f2d1646d2a6d7b1e2ed2.js\"],\"component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-bye-gatsby-mdx\":[\"/component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-bye-gatsby-mdx-784bdfae1b1535d10c93.js\"],\"component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-climbers-hash-mdx\":[\"/component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-climbers-hash-mdx-1bd581b48d6279f10ecf.js\"],\"component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-ging-mdx\":[\"/component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-ging-mdx-8133c848077f851aed98.js\"],\"component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-git-intermediate-mdx\":[\"/component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-git-intermediate-mdx-eb0116b20bf2fe65c1fb.js\"],\"component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-go-mentionables-mdx\":[\"/component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-go-mentionables-mdx-5f6c773bfcc513f1fb74.js\"],\"component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-healthcareless-mdx\":[\"/component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-healthcareless-mdx-2484f53bfa647b5e89f7.js\"],\"component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-html-5-and-localization-mdx\":[\"/component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-html-5-and-localization-mdx-9ff7bb8231a9312c0524.js\"],\"component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-java-codestyle-mdx\":[\"/component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-java-codestyle-mdx-30ef24bd061960a8edc8.js\"],\"component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-javascript-mentionables-mdx\":[\"/component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-javascript-mentionables-mdx-fce3f603e03e110884f4.js\"],\"component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-mysql-tips-and-tricks-mdx\":[\"/component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-mysql-tips-and-tricks-mdx-508b9f53b3b0c2ae616e.js\"],\"component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-postgres-mentionables-mdx\":[\"/component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-postgres-mentionables-mdx-d7177ab78f51c5f40826.js\"],\"component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-redshift-notes-mdx\":[\"/component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-redshift-notes-mdx-ecefe746194dd4775b7a.js\"],\"component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-redshift-opinion-mdx\":[\"/component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-redshift-opinion-mdx-8248949c05e2b6600e54.js\"]}";
+          </script>
+        <script>window.___webpackCompilationHash="63b809585765e2347bd9";</script><script src="/webpack-runtime-596a9c78bd8b377333c1.js" async></script><script src="/framework-468e2957bc488c301f9f.js" async></script><script src="/app-4510ebf38cfaafc6e466.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>
