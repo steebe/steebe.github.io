@@ -1,0 +1,244 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 5.13.0"/><style data-href="/styles.d18769d0c55a489926b9.css" data-identity="gatsby-global-css">.globals-module--centered-text--f1021{text-align:center}.globals-module--nav-link-text--78591{color:#2f4f4f}.globals-module--nav-link-current-item--312f0{text-decoration:none}.globals-module--hello--72374{animation:globals-module--flare--21b39 3s ease;animation-fill-mode:forwards;animation-iteration-count:1}@keyframes globals-module--flare--21b39{0%{opacity:0}to{font-size:20px;opacity:1}}.layout-module--container--4f29e{font-family:Courier New,monospace;margin:auto;max-width:500px;min-height:100vh;position:relative}.layout-module--footer--f8364{padding:20px 0;position:absolute;width:100%}.layout-module--nav-links--a181c{display:flex;list-style:none;padding-bottom:20px;padding-left:0;padding-top:20px}.layout-module--nav-link-item--fbd31{padding-right:2rem}.layout-module--resume--53a60{padding-bottom:20px}.tools-module--container--f04d6{font-family:Courier New,monospace;margin:auto;position:relative}.tools-module--content-container--d2a7e{align-items:center;display:flex;flex-direction:row;justify-content:center;position:relative}.tools-module--description--6df14{flex:0 2 auto;font-weight:lighter;padding:0 20px;position:relative}.tools-module--image--1f058{box-shadow:10px;flex:2 0 auto;position:relative}.writings-module--post--fa2ad{font-family:Georgia,serif}.writings-module--preview-container--33267{display:inline}.writings-module--text-end--d98ff{text-align:end}table{table-layout:fixed;width:100%}th{padding-bottom:10px}td{text-align:left}.writings-module--three-column--7af25 td:nth-child(3){text-align:right}</style><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){const t=e.target;if(void 0===t.dataset.mainImage)return;if(void 0===t.dataset.gatsbyImageSsr)return;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><link rel="preconnect" href="https://www.googletagmanager.com"/><link rel="dns-prefetch" href="https://www.googletagmanager.com"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-J596TM92WV"></script><script>
+      
+      
+      if(true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-J596TM92WV', {"send_page_view":false});
+      }
+      </script></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="layout-module--container--4f29e"><title>steebe - HOME</title><nav><ul class="layout-module--nav-links--a181c"><li class="layout-module--nav-link-item--fbd31"><a class="globals-module--nav-link-text--78591 globals-module--nav-link-current-item--312f0" href="/">HOME</a></li><li class="layout-module--nav-link-item--fbd31"><a class="globals-module--nav-link-text--78591" href="/tools">TOOLS</a></li><li class="layout-module--nav-link-item--fbd31"><a class="globals-module--nav-link-text--78591" href="/writings">BLOG</a></li><li class="layout-module--nav-link-item--fbd31"><a class="globals-module--nav-link-text--78591" href="/about">ABOUT</a></li></ul></nav><main><p class="writings-module--text-end--d98ff"><i>December 21, 2023</i></p><div class="writings-module--post--fa2ad"><h1>It&#x27;s Not Me, It&#x27;s You</h1>
+<p>For context, back in 2021 I decided to switch my site from vanilla HTML + CSS (with a Jekyll blog under one path)
+to a Gatsby site.</p>
+<h2>The Appeal</h2>
+<p>Our front-end team at work became pretty stacked, and I generally only tapped in to commit build, infra, or
+repository hygiene updates. I was craving being able to touch React. I&#x27;d stumbled upon Hugo and Gatsby, wanted to
+tinker. Ultimately, Gatsby <em>seemed</em> the most approachable of the two. Translation: its marketing worked on me.</p>
+<p>At first, after adopting it, I thought that I just was rusty in the front-end space. I thought it was reasonable
+that I spent more time digging through the four different doc sets required to get started and up and running than I
+did writing React code or CSS.</p>
+<ul>
+<li>Official Gatsby guides (to know what to do to rewrite my site with Gatsby)</li>
+<li>Adjacent Gatsby references that the guides frequently link to (because I guess their official guides often
+need supplemental help, and perhaps different Gatsby contributors had different ideas on how to structure docs?)</li>
+<li>Gatsby plugin homepages/documentation (because Gatbsy seems to have thought federated was the way to go for
+core site generator capabilities)</li>
+<li>Front-end tooling documentation (because I am now supporting a React app to write personal website updates)</li>
+</ul>
+<p>That&#x27;s because, at some points, it felt kind of intruiging! I wasn&#x27;t stuck hacking at HTML and CSS, I was spending
+my time &quot;coding&quot;! Everything is smooth and simple in the end, after my first build with CI/CD:</p>
+<ul>
+<li>To make blog posts, I write a new <code>.mdx</code>, push, et. voila!</li>
+<li>To make site updates, I write React relatively quickly, push, et. voila!</li>
+<li><em><strong>To keep the site safe and up-to-date, I watch for <code>npm</code> warnings, errors, or security flaws</strong></em></li>
+</ul>
+<h2>The Downfall</h2>
+<p>Two years later, and that last bullet is killing me. Every time I sit down to upgrade all things Gatsby, I find myself
+in an annoying sinkhole of problems introduced by the framework itself. The latest snafu is what put the final nail in the
+coffin.</p>
+<h4>Updating from one minor version to another</h4>
+<p>It should be this easy:</p>
+<ol>
+<li>Update Gatsby and its plugins</li>
+</ol>
+<pre><code class="language-shell">$ npm update gatsby \
+           gatsby-plugin-google-gtag \
+           gatsby-plugin-image \
+           gatsby-plugin-mdx \
+           gatsby-plugin-sharp \
+           gatsby-remark-images \
+           gatsby-source-filesystem
+</code></pre>
+<hr/>
+<ol start="2">
+<li>Update my toolchain</li>
+</ol>
+<pre><code class="language-shell">$ npm update -D eslint \
+              eslint-config-prettier \
+              eslint-plugin-prettier \
+              eslint-plugin-react \
+              prettier \
+              typescript \
+              @typescript-eslint/eslint-plugin \
+              @typescript-eslint/parser
+</code></pre>
+<p>Neither of these commands work while Gatsby was pinned to <code>5.5.0</code>, and while all other dependencies at least
+a minor version behind. Okay, I guess that&#x27;s not the end of the world. But why won&#x27;t they work? Because
+Gatsby&#x27;s core library has conflicting dev dependencies, so their developers are happy. Okay, I still
+understand. I will update by hand.</p>
+<hr/>
+<ol start="3">
+<li>Update <code>package.json</code> with entirely new version numbers for everything, and <code>npm i</code></li>
+</ol>
+<p>lol</p>
+<pre><code class="language-shell">npm WARN ERESOLVE overriding peer dependency
+npm WARN While resolving: eslint-config-react-app@6.0.0
+npm WARN Found: @typescript-eslint/eslint-plugin@5.62.0
+npm WARN node_modules/gatsby/node_modules/@typescript-eslint/eslint-plugin
+npm WARN   @typescript-eslint/eslint-plugin@&quot;^5.60.1&quot; from gatsby@5.13.0
+npm WARN   node_modules/gatsby
+npm WARN     gatsby@&quot;^5.13.0&quot; from the root project
+npm WARN     10 more (babel-plugin-remove-graphql-queries, ...)
+npm WARN 
+npm WARN Could not resolve dependency:
+npm WARN peer @typescript-eslint/eslint-plugin@&quot;^4.0.0&quot; from eslint-config-react-app@6.0.0
+npm WARN node_modules/gatsby/node_modules/eslint-config-react-app
+npm WARN   eslint-config-react-app@&quot;^6.0.0&quot; from gatsby@5.13.0
+npm WARN   node_modules/gatsby
+npm WARN 
+npm WARN Conflicting peer dependency: @typescript-eslint/eslint-plugin@4.33.0
+npm WARN node_modules/@typescript-eslint/eslint-plugin
+npm WARN   peer @typescript-eslint/eslint-plugin@&quot;^4.0.0&quot; from eslint-config-react-app@6.0.0
+npm WARN   node_modules/gatsby/node_modules/eslint-config-react-app
+npm WARN     eslint-config-react-app@&quot;^6.0.0&quot; from gatsby@5.13.0
+npm WARN     node_modules/gatsby
+npm WARN ERESOLVE overriding peer dependency
+npm WARN While resolving: eslint-config-react-app@6.0.0
+npm WARN Found: @typescript-eslint/parser@5.62.0
+npm WARN node_modules/gatsby/node_modules/@typescript-eslint/parser
+npm WARN   @typescript-eslint/parser@&quot;^5.60.1&quot; from gatsby@5.13.0
+npm WARN   node_modules/gatsby
+npm WARN     gatsby@&quot;^5.13.0&quot; from the root project
+npm WARN     10 more (babel-plugin-remove-graphql-queries, ...)
+npm WARN   1 more (@typescript-eslint/eslint-plugin)
+npm WARN 
+npm WARN Could not resolve dependency:
+npm WARN peer @typescript-eslint/parser@&quot;^4.0.0&quot; from eslint-config-react-app@6.0.0
+npm WARN node_modules/gatsby/node_modules/eslint-config-react-app
+npm WARN   eslint-config-react-app@&quot;^6.0.0&quot; from gatsby@5.13.0
+npm WARN   node_modules/gatsby
+npm WARN 
+npm WARN Conflicting peer dependency: @typescript-eslint/parser@4.33.0
+npm WARN node_modules/@typescript-eslint/parser
+npm WARN   peer @typescript-eslint/parser@&quot;^4.0.0&quot; from eslint-config-react-app@6.0.0
+npm WARN   node_modules/gatsby/node_modules/eslint-config-react-app
+npm WARN     eslint-config-react-app@&quot;^6.0.0&quot; from gatsby@5.13.0
+npm WARN     node_modules/gatsby
+npm WARN ERESOLVE overriding peer dependency
+npm WARN While resolving: react-server-dom-webpack@0.0.0-experimental-c8b778b7f-20220825
+npm WARN Found: react@18.2.0
+npm WARN node_modules/react
+npm WARN   react@&quot;^18.2.0&quot; from the root project
+npm WARN   10 more (@gatsbyjs/reach-router, @mdx-js/react, gatsby, ...)
+npm WARN 
+npm WARN Could not resolve dependency:
+npm WARN peer react@&quot;0.0.0-experimental-c8b778b7f-20220825&quot; from react-server-dom-webpack@0.0.0-experimental-c8b778b7f-20220825
+npm WARN node_modules/gatsby/node_modules/react-server-dom-webpack
+npm WARN   react-server-dom-webpack@&quot;0.0.0-experimental-c8b778b7f-20220825&quot; from gatsby@5.13.0
+npm WARN   node_modules/gatsby
+npm WARN 
+npm WARN Conflicting peer dependency: react@0.0.0-experimental-c8b778b7f-20220825
+npm WARN node_modules/react
+npm WARN   peer react@&quot;0.0.0-experimental-c8b778b7f-20220825&quot; from react-server-dom-webpack@0.0.0-experimental-c8b778b7f-20220825
+npm WARN   node_modules/gatsby/node_modules/react-server-dom-webpack
+npm WARN     react-server-dom-webpack@&quot;0.0.0-experimental-c8b778b7f-20220825&quot; from gatsby@5.13.0
+npm WARN     node_modules/gatsby
+</code></pre>
+<p>Fine, whatever, I don&#x27;t want to use Gatsby&#x27;s version of ES Lint plugins or TypeScript plugins. It&#x27;s my site, not
+a Gatsby commit that I&#x27;m writing changes for. Okay, I&#x27;ll ignore these errors.</p>
+<hr/>
+<ol start="4">
+<li>Get yelled at about vulnerabilities</li>
+</ol>
+<pre><code class="language-shell">14 moderate severity vulnerabilities
+
+To address issues that do not require attention, run:
+  npm audit fix
+</code></pre>
+<p>Yep:</p>
+<pre><code class="language-shell">$ npm audit fix
+</code></pre>
+<p>There are still 12 moderate severity vulnerabilities.</p>
+<p>Okay, still a ton of warnings that I don&#x27;t need to actually care about, but will need to read each time I revisit
+My site&#x27;s dependencies.</p>
+<p>Fun stuff.</p>
+<hr/>
+<ol start="5">
+<li>Does the app build now, though?</li>
+</ol>
+<pre><code class="language-shell">$ npm run build # (this is my script for a `gatsby build`, per their framework behavior)
+
+...build output...
+
+_Multiple instances of_:
+
+ ERROR  UNKNOWN
+
+(node:12600) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+...build output...
+</code></pre>
+<p><strong>Shit, why?</strong></p>
+<pre><code class="language-shell">$ npx npm-why punycode
+</code></pre>
+<p>Oh, okay. 3106 lines of output. Each Gatsby dependency I leverage consumes <code>punycode</code> through its dependencies.
+Nice.</p>
+<h4>Considering My Options</h4>
+<p>At this point, I&#x27;m regretting having gone down the mental road of choosing &quot;dev friendliness&quot; over site stability
+and maintenance. By not owning Gatsby, I have the luxury of simply using its features, but I also have the side-effect
+of not having any control over my own developer experience or my own site&#x27;s stability in real time.</p>
+<p>I can&#x27;t tell if I&#x27;m happy about this realization, or nervous that I&#x27;ve become one of <em>them</em>:</p>
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=38126210">Why You Should Write Your Own Static Site Generator</a></li>
+<li><a href="https://news.ycombinator.com/item?id=28837760">Why I built my own static site generator</a></li>
+<li><a href="https://news.ycombinator.com/item?id=25227181">I Built My Own Shitty Static Site Generator</a></li>
+<li><a href="https://news.ycombinator.com/item?id=24760528">Show HN: Blades - fast static site generator written in Rust</a></li>
+<li><a href="https://news.ycombinator.com/item?id=37454853">&quot;Make&quot; as a static site generator</a></li>
+</ul>
+<h2>In The End</h2>
+<p>I can continue relying on Gatsby for super easy minor updates to my web pages. I cannot rely on it for the very
+&quot;magic&quot; that turned me on to it: A simple SSG that offers a great dev experience.</p>
+<p>When my own developer configs
+create endless warnings and errors from the most essential part of Gatsby: its position in the JavaScript ecosystem,
+I can&#x27;t help but feel it has lost its edge. I drank the Kool Aid. Now I have a belly ache.</p>
+<hr/>
+<hr/>
+<h5>P.S.</h5>
+<p>This ended up being my first blog post in a while, and one that includes a lot of nested code blocks.
+To improve readability, I wanted to adopt syntax highlighting and a background color for contrast against &quot;normal
+text&quot;. There was an update that was at one point compatible with <code>gatsby-plugin-mdx</code> via <code>gatsby-remark-highlight-code</code>
+that now breaks with the latest version of Gatsby (<code>5.13.0</code> at time of writing). The workarounds include:</p>
+<ul>
+<li>
+<p>Using the MDX rehype-highlight library directly, and injecting it into the <code>gatsby-plugin-mdx</code> <code>options.rehypePlugins</code>
+field</p>
+<ul>
+<li>This now requires <code>require(&quot;rehype-highlight&quot;)</code>
+<ul>
+<li>This is no longer compatible with the latest version of Gatsby, and these workarounds break:<!-- -->
+<ul>
+<li>Asynchronously promise the Gatsby module config to dynamically <code>import rehypeHighlight</code>
+<ul>
+<li>(breaks the Gatsby config import entirely)</li>
+</ul>
+</li>
+<li>Using babel to create gatsby-config.js as a module<!-- -->
+<ul>
+<li>(breaks the GraphQL library during build phase)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Writing an entire MDX parser to look for code blocks, and apply custom CSS</p>
+<ul>
+<li>This can employ the help of other libraries, like Prism, to do the styling</li>
+<li>If this were started, why stop? Why not extend the parsing to a larger engine? It could be some sort of content parser
+plus content renderer. It could generate content based on some templated files. It could create an entire static site
+based on the contents of a folder...</li>
+</ul>
+</li>
+</ul>
+<p>Oh...</p></div></main><footer class="globals-module--centered-text--f1021 layout-module--footer--f8364"><div class="layout-module--resume--53a60"><a href="./steve_bass_resume.pdf" class="globals-module--nav-link-text--78591" target="_blank">RESUME</a></div><a href="https://www.github.com/steebe" target="_blank" class="globals-module--nav-link-text--78591 layout-module--nav-link-item--fbd31" rel="noreferrer">GITHUB</a><a href="https://www.linkedin.com/in/steebe" target="_blank" class="globals-module--nav-link-text--78591" rel="noreferrer">LINKEDIN</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/writings/bye-gatsby";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+          <script
+            id="gatsby-chunk-mapping"
+          >
+            window.___chunkMapping="{\"app\":[\"/app-4510ebf38cfaafc6e466.js\"],\"component---src-pages-404-tsx\":[\"/component---src-pages-404-tsx-58970f1b169344cc125f.js\"],\"component---src-pages-about-tsx\":[\"/component---src-pages-about-tsx-d2bcc774728d84f253c4.js\"],\"component---src-pages-index-tsx\":[\"/component---src-pages-index-tsx-38c42eee603c15516c7e.js\"],\"component---src-pages-tools-tsx\":[\"/component---src-pages-tools-tsx-bb08ec62806b805dba19.js\"],\"component---src-pages-writings-index-tsx\":[\"/component---src-pages-writings-index-tsx-71211a80dc9e843b62b6.js\"],\"component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-2023-swoosh-mdx\":[\"/component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-2023-swoosh-mdx-b04110fc0c067be29871.js\"],\"component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-apple-mdx\":[\"/component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-apple-mdx-0599f9ea02776efb39eb.js\"],\"component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-broken-windows-mdx\":[\"/component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-broken-windows-mdx-1c1fccd48fa0c0caa90f.js\"],\"component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-burning-images-to-usb-mdx\":[\"/component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-burning-images-to-usb-mdx-f2d1646d2a6d7b1e2ed2.js\"],\"component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-bye-gatsby-mdx\":[\"/component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-bye-gatsby-mdx-784bdfae1b1535d10c93.js\"],\"component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-climbers-hash-mdx\":[\"/component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-climbers-hash-mdx-1bd581b48d6279f10ecf.js\"],\"component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-ging-mdx\":[\"/component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-ging-mdx-8133c848077f851aed98.js\"],\"component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-git-intermediate-mdx\":[\"/component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-git-intermediate-mdx-eb0116b20bf2fe65c1fb.js\"],\"component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-go-mentionables-mdx\":[\"/component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-go-mentionables-mdx-5f6c773bfcc513f1fb74.js\"],\"component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-healthcareless-mdx\":[\"/component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-healthcareless-mdx-2484f53bfa647b5e89f7.js\"],\"component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-html-5-and-localization-mdx\":[\"/component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-html-5-and-localization-mdx-9ff7bb8231a9312c0524.js\"],\"component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-java-codestyle-mdx\":[\"/component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-java-codestyle-mdx-30ef24bd061960a8edc8.js\"],\"component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-javascript-mentionables-mdx\":[\"/component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-javascript-mentionables-mdx-fce3f603e03e110884f4.js\"],\"component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-mysql-tips-and-tricks-mdx\":[\"/component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-mysql-tips-and-tricks-mdx-508b9f53b3b0c2ae616e.js\"],\"component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-postgres-mentionables-mdx\":[\"/component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-postgres-mentionables-mdx-d7177ab78f51c5f40826.js\"],\"component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-redshift-notes-mdx\":[\"/component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-redshift-notes-mdx-ecefe746194dd4775b7a.js\"],\"component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-redshift-opinion-mdx\":[\"/component---src-pages-writings-mdx-fields-slug-tsx-content-file-path-blog-redshift-opinion-mdx-8248949c05e2b6600e54.js\"]}";
+          </script>
+        <script>window.___webpackCompilationHash="63b809585765e2347bd9";</script><script src="/webpack-runtime-596a9c78bd8b377333c1.js" async></script><script src="/framework-468e2957bc488c301f9f.js" async></script><script src="/app-4510ebf38cfaafc6e466.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>
