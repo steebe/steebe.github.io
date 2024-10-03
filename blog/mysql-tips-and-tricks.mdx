@@ -1,6 +1,7 @@
 ---
 title: "MySQL Tips and Tricks"
 date: "2021-01-05"
+updated: "2024-10-03"
 ---
 
 # MySQL - Helpful Tidbits
@@ -63,3 +64,36 @@ UTC. Therefore, `+00:00` is itself UTC, and `-07:00` would equate to PT in the U
 SELECT CONVERT_TZ(created, '+00:00','-07:00') FROM users;
 ```
 
+### Performing Maintenance on Huge Tables
+
+Old faithful has been holding down the fort for 9 years. It's full of juicy data that's
+both important for reporting and critical for application business logic for end users.
+It is also missing a ton of helpful index values underneath the columns matter most.
+
+Your reports won't report, and you know in your gut that `ALTER TABLE` in real time on 
+old faithful will take about 10,000 years to execute. 
+
+So, you perform the following:
+- Create a new table that contains the index values you require
+- Copy the data from old faithful into this clone table with indices
+- Rename (or drop) the original old faithful, and rename the clone to become old faithful
+
+```sql
+BEGIN;
+
+CREATE TABLE IF NOT EXISTS oldFaithfulWithIndices LIKE oldFaithful;
+
+ALTER TABLE oldFaithfulWithIndices
+    ADD INDEX `account_id_index`(`account_id`),
+    ADD INDEX `email_address_index`(`email_address`),
+    ADD INDEX `created_datetime_index`(`created_datetime`),
+    ADD INDEX `updated_datetime_index`(`updated_datetime`);
+
+INSERT INTO oldFaithfulWithIndices SELECT * FROM oldFaithful;
+
+RENAME TABLE oldFaithful TO oldFaithful_archive;
+
+RENAME TABLE oldFaithfulWithIndices TO oldFaithful;
+
+COMMIT;
+```
