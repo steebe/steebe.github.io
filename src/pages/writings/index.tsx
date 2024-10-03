@@ -27,7 +27,7 @@ const Writings = ({ data }: PageProps<DataProps>) => {
   const eligibleNodes = data.allMdx.nodes.filter((node) => !node.frontmatter.draft);
 
   // The GraphQL for sourcing the MDX nodes cannot sort by two frontmatter props; must do so here
-  eligibleNodes.sort((a: Node, b:Node): number => {
+  eligibleNodes.sort((a: Node, b: Node): number => {
     const strA = a.frontmatter.updated;
     const strB = b.frontmatter.updated;
 
@@ -54,10 +54,9 @@ const Writings = ({ data }: PageProps<DataProps>) => {
                 <span>
                   <Link to={`/writings${node.fields.slug}`}>{node.frontmatter.title}</Link>
                   <p className={date}>{node.frontmatter.date}</p>
-                  {
-                    node.frontmatter.updated &&
+                  {node.frontmatter.updated && (
                     <p className={date}>(Updated on {node.frontmatter.updated})</p>
-                  }
+                  )}
                 </span>
               </div>
               {!(index === eligibleNodes.length - 1) && <hr />}

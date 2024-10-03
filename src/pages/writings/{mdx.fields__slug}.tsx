@@ -19,11 +19,8 @@ const Post = ({ data, children }: PageProps<DataProps>) => {
     <Layout>
       <p className={date}>
         <i>{data.mdx.frontmatter.date}</i>
-        <br/>
-        {
-          data.mdx.frontmatter.updated &&
-          <i>(Updated on {data.mdx.frontmatter.updated})</i>
-        }
+        <br />
+        {data.mdx.frontmatter.updated && <i>(Updated on {data.mdx.frontmatter.updated})</i>}
       </p>
       <div className={post}>{children}</div>
     </Layout>
