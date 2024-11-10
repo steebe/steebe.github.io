@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+import { siteImage } from "../globals.module.css";
 import { container, contentContainer, description, image } from "./tools.module.css";
 import { StaticImage } from "gatsby-plugin-image";
 
@@ -20,6 +21,7 @@ const Tools = () => {
           alt="unminipy"
           height={imageLength}
           width={imageLength}
+          className={siteImage}
         />
       ),
       description: "A small CLI utility for unminifying minified JSON to assist with readability.",
@@ -33,6 +35,7 @@ const Tools = () => {
           alt="domestic hearth"
           height={imageLength}
           width={imageLength}
+          className={siteImage}
         />
       ),
       description: "A browser extension for overriding distractions.",

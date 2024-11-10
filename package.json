@@ -9,7 +9,7 @@
   ],
   "name": "steebe.dev",
   "private": true,
-  "version": "1.2.3",
+  "version": "1.2.4",
   "scripts": {
     "build": "gatsby build",
     "clean": "gatsby clean",

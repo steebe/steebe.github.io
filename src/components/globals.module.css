@@ -10,10 +10,8 @@
   text-decoration: none;
 }
 
-.hello {
-  animation: flare 3s ease;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
+.site-image {
+  border-radius: 5px;
 }
 
 @keyframes flare {

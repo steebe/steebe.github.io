@@ -1,6 +1,7 @@
 import React from "react";
 import Layout from "../components/layout/layout";
 import { StaticImage } from "gatsby-plugin-image";
+import { siteImage } from "../components/globals.module.css";
 
 const About = () => {
   return (
@@ -12,7 +13,11 @@ const About = () => {
         </a>
         . He has been in industry for over eight years, across four domains of business.
       </p>
-      <StaticImage src="../images/me_booth.jpeg" alt="Steve, eating some sunshine" />
+      <StaticImage
+        className={siteImage}
+        src="../images/me_booth.jpeg"
+        alt="Steve, eating some sunshine"
+      />
       <p>
         Steve’s experience as engineer #4 at Mercato has been his most formative, but all of his
         opportunities offered great chances to help him become a strong generalist enterprise

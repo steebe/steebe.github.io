@@ -11,70 +11,83 @@ type Props = {
 
 const SITE_NAME_ROOT = "steebe - ";
 
-const PATHS = {
+const TITLES = {
   HOME: SITE_NAME_ROOT + "HOME",
+  PHOTOS: SITE_NAME_ROOT + "PHOTOS",
   TOOLS: SITE_NAME_ROOT + "TOOLS",
   BLOG: SITE_NAME_ROOT + "BLOG",
   ABOUT: SITE_NAME_ROOT + "ABOUT",
 };
 
-const Layout: React.FC<Props> = ({ children }) => {
-  const page = typeof window !== "undefined" ? window.location.pathname : undefined;
-  const isTools = page?.includes("tool");
-  const isAbout = page?.includes("about");
-  const isBlogRoot =
-    page?.endsWith("writings") || page?.endsWith("writings/") || page?.includes("writings");
-  const isHome = page === "/" || (!isTools && !isAbout && !isBlogRoot);
+class NavLocation {
+  current: boolean | undefined;
+  title: string;
+  linkLabel: string;
+  linkPath: string;
+  classNames: classnames.ArgumentArray;
+  constructor(current: boolean | undefined, title: string) {
+    this.current = current;
+    this.title = title;
+    this.linkLabel = title.replace(SITE_NAME_ROOT, "");
 
-  let path: string;
-
-  if (isTools) {
-    path = PATHS.TOOLS;
-  } else if (isAbout) {
-    path = PATHS.ABOUT;
-  } else if (isBlogRoot) {
-    path = PATHS.BLOG;
-  } else {
-    path = PATHS.HOME;
+    this.linkPath = "/";
+    switch (title) {
+      case TITLES.HOME:
+        this.linkPath = "/";
+        break;
+      case TITLES.PHOTOS:
+        this.linkPath = "/photos";
+        break;
+      case TITLES.TOOLS:
+        this.linkPath = "/tools";
+        break;
+      case TITLES.BLOG:
+        this.linkPath = "/writings";
+        break;
+      case TITLES.ABOUT:
+        this.linkPath = "/about";
+        break;
+      default:
+        break;
+    }
+    this.classNames = [navLinkText, current ? navLinkCurrentItem : null];
   }
+}
+
+const Layout: React.FC<Props> = ({ children }) => {
+  const path = typeof window !== "undefined" ? window.location.pathname : undefined;
+  const isPhotos = path?.includes("photos");
+  const isTools = path?.includes("tool");
+  const isAbout = path?.includes("about");
+  const isBlogRoot =
+    path?.endsWith("writings") || path?.endsWith("writings/") || path?.includes("writings");
+  const isHome = path === "/" || (!isTools && !isAbout && !isBlogRoot && !isPhotos);
+
+  const navLocations = [
+    new NavLocation(isHome, TITLES.HOME),
+    // new NavLocation(isPhotos, TITLES.PHOTOS),
+    new NavLocation(isTools, TITLES.TOOLS),
+    new NavLocation(isBlogRoot, TITLES.BLOG),
+    new NavLocation(isAbout, TITLES.ABOUT),
+  ];
 
   return (
     <div className={container}>
-      <title>{path}</title>
+      <title>{navLocations.filter((loc) => loc.current).map((loc) => loc.title)}</title>
       <nav>
         <ul className={navLinks}>
-          <li className={navLinkItem}>
-            <Link to="/" className={classnames(navLinkText, isHome ? navLinkCurrentItem : null)}>
-              HOME
-            </Link>
-          </li>
-          <li className={navLinkItem}>
-            <Link
-              to="/tools"
-              className={classnames(navLinkText, isTools ? navLinkCurrentItem : null)}
-            >
-              TOOLS
-            </Link>
-          </li>
-          <li className={navLinkItem}>
-            <Link
-              to="/writings"
-              className={classnames(navLinkText, isBlogRoot ? navLinkCurrentItem : null)}
-            >
-              BLOG
-            </Link>
-          </li>
-          <li className={navLinkItem}>
-            <Link
-              to="/about"
-              className={classnames(navLinkText, isAbout ? navLinkCurrentItem : null)}
-            >
-              ABOUT
-            </Link>
-          </li>
+          {navLocations.map((location) => (
+            <li key={location.title} className={navLinkItem}>
+              <Link to={location.linkPath} className={classnames(location.classNames)}>
+                {location.linkLabel}
+              </Link>
+            </li>
+          ))}
         </ul>
       </nav>
+
       <main>{children}</main>
+
       <footer className={`${centeredText} ${footer}`}>
         <div className={resume}>
           <a href="./steve_bass_resume.pdf" className={navLinkText} target="_blank">

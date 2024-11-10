@@ -1,14 +1,18 @@
 import React from "react";
 import Layout from "../components/layout/layout";
 import { StaticImage } from "gatsby-plugin-image";
-import { centeredText, hello } from "../components/globals.module.css";
+import { centeredText, siteImage } from "../components/globals.module.css";
 
 const IndexPage = () => {
   return (
     <Layout>
-      <StaticImage src="../images/me_blue.jpeg" alt="Me" />
+      <StaticImage className={siteImage} src="../images/me_blue.jpeg" alt="Me" />
       <div className={centeredText}>
-        <p className={hello}>Hey, I’m Steve!</p>
+        <p>
+          <b>
+            <i>steve (at) stevebass (dot) me</i>
+          </b>
+        </p>
       </div>
     </Layout>
   );
