@@ -1,14 +1,14 @@
 ---
 title: "MySQL Tips and Tricks"
 date: "2021-01-05"
-updated: "2024-10-03"
+updated: "2025-04-03"
 ---
 
 # MySQL - Helpful Tidbits
 
 My experiences at Rev360 (RevolutionEHR) and Mercato brought about developing for back-ends that leverage MySQL for data storage solutions. All my other previous experiences were within the context of Oracle, DB2, and SQL Server database technologies, and I found myself constantly Googling to see how to do things better in MySQL. Below are some of those findings.
 
-### Perform batch UPDATEs with a temp table
+## Perform batch UPDATEs with a temp table
 
 When performing `UPDATE`s against a table in bulk, MySQL is pretty non-performant when given a raw ```UPDATE``` statement with a ```WHERE``` clause:
 
@@ -41,7 +41,7 @@ SET
 A.foo = tempFooValues.foo;
 ```
 
-### Leveraging CASE within a JOIN
+## Leveraging CASE within a JOIN
 
 This one is pretty self-explanatory...
 
@@ -55,7 +55,7 @@ ELSE 0
 END = 1;
 ```
 
-### Converting Timezones from UTC
+## Converting Timezones from UTC
 
 The arguments for the "from" and "to" timezones in `CONVERT_TZ` are the offsets from
 UTC. Therefore, `+00:00` is itself UTC, and `-07:00` would equate to PT in the U.S.
@@ -64,7 +64,7 @@ UTC. Therefore, `+00:00` is itself UTC, and `-07:00` would equate to PT in the U
 SELECT CONVERT_TZ(created, '+00:00','-07:00') FROM users;
 ```
 
-### Performing Maintenance on Huge Tables
+## Performing Maintenance on Huge Tables
 
 Old faithful has been holding down the fort for 9 years. It's full of juicy data that's
 both important for reporting and critical for application business logic for end users.
@@ -97,3 +97,65 @@ RENAME TABLE oldFaithfulWithIndices TO oldFaithful;
 
 COMMIT;
 ```
+
+
+## Adding composite unique indexes to existing table
+
+When working with a table that already contains data that would violate a desired `unique` index
+you wish to apply to a table, it's important you scrub the dupes.
+
+```sql
+DELETE FROM my_table
+WHERE id NOT IN (
+    SELECT MIN(id)
+    FROM my_table
+    GROUP BY col_1, col_2
+)
+AND (col_1, col_2) in (
+    SELECT col_1, col_2
+    FROM my_table
+    GROUP BY col_1, col_2
+    HAVING count(*) > 1
+);
+```
+
+## GROUP_CONCAT()
+
+The `GROUP_CONCAT()` function is used to aggregate the results of a column into a single field.
+
+Use cases...
+
+Concatenating all single-column results into a single field results:
+
+```sql
+SELECT GROUP_CONCAT(email_address) FROM customer; 
+```
+
+Grouping all results of a column into a single field relative to a shared group identifier
+
+```sql
+SELECT customer, GROUP_CONCAT(order.id)
+FROM customer
+JOIN order ON customer.id = order.customer_id
+GROUP BY customer.id
+```
+
+`GROUP_CONCAT()` allows for customizability of the structure of the aggregated data:
+
+```sql
+SELECT customer, GROUP_CONCAT(order.id ORDER BY order.id DESC SEPARATOR '| ')
+FROM customer
+JOIN order ON customer.id = order.customer_id
+GROUP BY customer.id
+```
+
+## `LAST_INSERT_ID()`
+
+For any given session in the database engine, the session user can inspect their latest insertion ID with:
+
+```sql
+SELECT LAST_INSERT_ID();
+```
+
+This function operates on a per-connection basis, meaning that when the DB session user terminates their
+current connection, their next session will yield a different result. A fresh session yields `0`. 
