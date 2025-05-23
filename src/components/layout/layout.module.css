@@ -1,15 +1,18 @@
 .container {
   font-family: "Courier New", monospace;
+
+  display: flex;
+  flex-direction: column;
+
   margin: auto;
   max-width: 500px;
-  min-height: 100vh;
-  position: relative;
+  min-height: calc(100vh - 150px);
 }
-.footer {
-  padding: 20px 0;
-  position: absolute;
-  width: 100%;
+
+.main {
+  margin-bottom: 150px;
 }
+
 .nav-links {
   display: flex;
   list-style: none;
@@ -17,9 +20,7 @@
   padding-top: 20px;
   padding-bottom: 20px;
 }
+
 .nav-link-item {
   padding-right: 2rem;
-}
-.resume {
-  padding-bottom: 20px;
 }

@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import Layout from "../../components/layout/layout";
 import { graphql, PageProps } from "gatsby";
-import { post, date } from "./writings.module.css";
+import { post, date } from "./lines.module.css";
 
 type DataProps = {
   mdx: {
