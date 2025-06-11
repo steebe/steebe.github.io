@@ -85,8 +85,7 @@ const Layout: React.FC<Props> = ({ children }) => {
             ))}
           </ul>
         </nav>
-
-        <main className="main">{children}</main>
+        <p>{children}</p>
       </div>
       <Footer />
     </>
