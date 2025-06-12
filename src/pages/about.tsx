@@ -15,22 +15,20 @@ const About = () => {
       </p>
       <StaticImage
         className={siteImage}
-        src="../images/me_booth.jpeg"
+        src="../images/tommy_booth.jpg"
         alt="Steve, eating some sunshine"
       />
       <p>
         Steve’s experience as engineer #4 at Mercato has been his most formative, but all of his
-        opportunities offered great chances to help him become a strong generalist enterprise
+        opportunities offered great chances to help him become a scrappy generalist enterprise
         developer. His road to becoming a strong technologist was effortful and proved to be a
         challenge; Steve’s soft skills are culture-building, leading, and being an outgoing and
         effective communicator. His hard skills of designing and implementing pragmatic software
-        solutions came less naturally, and took many long nights and much mental elbow grease.
+        solutions came with many long nights and much mental elbow grease.
       </p>
       <p>
-        Though Steve has poured himself into work lately, more than ever, he also remembers to
-        occasionally step away from his desk for the important things. His free time is generally
-        occupied by rock climbing, noodling on his guitar and bass, or spending time with loved
-        ones.
+        Steve’s free time is generally occupied by rock climbing, shooting photos, playing music,
+        and spending time with loved ones.
       </p>
       <p>
         Steve has enjoyed becoming a slowmad
@@ -47,10 +45,6 @@ const About = () => {
           <li>San Diego, CA</li>
           <li>Grass Valley, CA</li>
         </ul>
-      </p>
-      <p>
-        Steve’s passions are: music, photography, cooking, and travelling. He is slowly remembering
-        to find time for each as normalcy returns to the culture around him.
       </p>
       <p>
         Steve holds a Bachelor’s of Science in Computer Science from the University at Buffalo in

@@ -6,7 +6,7 @@ import { centeredText, siteImage } from "../components/globals.module.css";
 const IndexPage = () => {
   return (
     <Layout>
-      <StaticImage className={siteImage} src="../images/me_blue.jpeg" alt="Me" />
+      <StaticImage className={siteImage} src="../images/em.JPG" alt="Me" />
       <div className={centeredText}>
         <p>
           <b>
