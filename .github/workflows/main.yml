@@ -22,7 +22,7 @@ jobs:
           node-version: 22.1.0
 
       - name: install
-        run: npm i
+        run: npm i --force
 
       - name: lint
         run: npm run lint
