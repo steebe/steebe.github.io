@@ -8,11 +8,7 @@ const IndexPage = () => {
     <Layout>
       <StaticImage className={siteImage} src="../images/em.JPG" alt="Me" />
       <div className={centeredText}>
-        <p>
-          <b>
-            <i>steve (at) stevebass (dot) me</i>
-          </b>
-        </p>
+        <h5>steve [at] stevebass [dot] me</h5>
       </div>
     </Layout>
   );
