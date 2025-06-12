@@ -30,8 +30,8 @@ jobs:
       - name: compile
         run: npm run compile
 
-      - name: deploy
-        uses: enriikke/gatsby-gh-pages-action@v2
+      - name: Gatsby Publish
+        uses: steebe/gatsby-gh-pages-action@v2.2.2
         with:
           access-token: ${{ secrets.ACCESS_TOKEN }}
-          gatsby-args: --force
+          package-manager-force: true
