@@ -5,6 +5,7 @@ module.exports = {
   },
   trailingSlash: "never",
   plugins: [
+    "gatsby-plugin-fontawesome-css",
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     {

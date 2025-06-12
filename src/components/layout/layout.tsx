@@ -5,6 +5,10 @@ import { container, navLinks, navLinkItem } from "./layout.module.css";
 import classnames from "classnames";
 import Footer from "../footer/footer";
 
+export const Head = () => (
+  <script src="https://kit.fontawesome.com/fa5a068953.js" crossOrigin="anonymous"></script>
+);
+
 type Props = {
   children?: ReactNode;
 };

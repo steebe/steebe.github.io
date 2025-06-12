@@ -2,6 +2,9 @@ import React from "react";
 import { OutboundLink } from "gatsby-plugin-google-gtag";
 import { centeredText, navLinkText, navLinkItem } from "../globals.module.css";
 import { footer, footerContent, footerLinks } from "./footer.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBookOpen } from "@fortawesome/free-solid-svg-icons";
+import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 
 const Footer: React.FC = () => {
   return (
@@ -9,7 +12,7 @@ const Footer: React.FC = () => {
       <div className={footerContent}>
         <span className={footerLinks}>
           <a href="./steve_bass_resume.pdf" className={navLinkText} target="_blank">
-            RESUME
+            <FontAwesomeIcon icon={faBookOpen} size="1x" />
           </a>
         </span>
 
@@ -20,7 +23,7 @@ const Footer: React.FC = () => {
             className={`${navLinkText} ${navLinkItem}`}
             rel="noreferrer"
           >
-            GITHUB
+            <FontAwesomeIcon icon={faGithub} size="1x" />
           </OutboundLink>
         </span>
 
@@ -31,7 +34,7 @@ const Footer: React.FC = () => {
             className={navLinkText}
             rel="noreferrer"
           >
-            LINKEDIN
+            <FontAwesomeIcon icon={faLinkedinIn} size="1x" />
           </OutboundLink>
         </span>
       </div>
