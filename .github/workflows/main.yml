@@ -19,7 +19,7 @@ jobs:
       - name: Configure Node.js
         uses: actions/setup-node@v3.6.0
         with:
-          node-version: 22.1.0
+          node-version: 22.21.1
 
       - name: install
         run: npm i --force
