@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React from "react";
 import { Link } from "gatsby";
 import { Node } from "../../types/node";
 import * as styles from "./rowItem.module.css";
