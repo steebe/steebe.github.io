@@ -35,9 +35,13 @@ const CalendarWidget = () => {
         style={{
           display: "flex",
           gap: "0.5rem",
-          justifyContent: "center",
           marginBottom: "1rem",
           transition: "all 0.5s ease-in-out",
+          overflowX: "auto",
+          overflowY: "hidden",
+          WebkitOverflowScrolling: "touch",
+          scrollbarWidth: "thin",
+          paddingBottom: "0.5rem",
         }}
       >
         {days.map((day) => (
@@ -51,6 +55,7 @@ const CalendarWidget = () => {
               textAlign: "center",
               backgroundColor: "#f5f5f5",
               transition: "all 0.5s ease-in-out",
+              flexShrink: 0,
             }}
           >
             <div style={{ fontWeight: "bold", marginBottom: "0.5rem" }}>{day.slice(0, 3)}</div>
@@ -80,7 +85,7 @@ const CalendarWidget = () => {
             padding: "0.75rem 2rem",
             fontSize: "1rem",
             fontWeight: "bold",
-            backgroundColor: "#007bff",
+            backgroundColor: "#2f4f4f",
             color: "white",
             border: "none",
             borderRadius: "6px",
