@@ -60,11 +60,11 @@ class NavLocation {
 
 const Layout: React.FC<Props> = ({ children }) => {
   const path = typeof window !== "undefined" ? window.location.pathname : undefined;
-  const isPhotos = path?.includes("photos");
+  // const isPhotos = path?.includes("photos");
   const isTools = path?.includes("tool");
   const isAbout = path?.includes("about");
   const isBlogRoot = path?.endsWith("lines") || path?.endsWith("lines/") || path?.includes("lines");
-  const isHome = path === "/" || (!isTools && !isAbout && !isBlogRoot && !isPhotos);
+  const isHome = path === "/";
 
   const navLocations = [
     new NavLocation(isHome, TITLES.HOME),
