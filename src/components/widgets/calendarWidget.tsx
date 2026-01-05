@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from "react";
+import Widget from "./widget";
 
 const CalendarWidget = () => {
   const [days, setDays] = useState([
@@ -30,7 +31,7 @@ const CalendarWidget = () => {
   };
 
   return (
-    <div style={{ marginTop: "2rem" }}>
+    <Widget title="fix the week">
       <div
         style={{
           display: "flex",
@@ -97,7 +98,7 @@ const CalendarWidget = () => {
           Fix
         </button>
       </div>
-    </div>
+    </Widget>
   );
 };
 

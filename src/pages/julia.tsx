@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../components/layout/layout";
-import CalendarWidget from "../components/widgets/CalendarWidget";
+import CalendarWidget from "../components/widgets/calendarWidget";
 
 const Julia = () => {
   return (
