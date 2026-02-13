@@ -1,0 +1,602 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-J596TM92WV"></script><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="generator" content="Gatsby 5.16.1"/><link rel="preconnect" href="https://www.googletagmanager.com"/><link rel="dns-prefetch" href="https://www.googletagmanager.com"/><style data-href="/styles.dd148ae1ee9f90c94ee4.css" data-identity="gatsby-global-css">.globals-module--centered-text--f1021{text-align:center}.globals-module--nav-link-text--78591{color:#2f4f4f}.globals-module--nav-link-current-item--312f0{text-decoration:none}.globals-module--site-image--59f09{border-radius:5px}@keyframes globals-module--flare--21b39{0%{opacity:0}to{font-size:20px;opacity:1}}.layout-module--container--4f29e{display:flex;flex-direction:column;font-family:Courier New,monospace;margin:auto;max-width:500px;padding-bottom:50px}.layout-module--nav-links--a181c{display:flex;list-style:none;padding-bottom:10px;padding-left:0;padding-top:20px}.layout-module--nav-link-item--fbd31{padding-right:2rem}.footer-module--footer--03d8a{background:linear-gradient(180deg,hsla(0,0%,100%,0) 0,#fff 20%);bottom:0;font-family:Courier New,monospace;left:0;padding:1.5rem;pointer-events:none;position:fixed;right:0;z-index:100}.footer-module--footer-content--6ad50{gap:2.5rem;margin:0 auto;max-width:500px;pointer-events:auto}.footer-module--footer-content--6ad50,.footer-module--footer-links--4e5f0{align-items:center;display:flex;justify-content:center}.rowItem-module--rowItem--bc8b9{align-items:flex-start;display:flex;gap:2rem;justify-content:space-between;padding:1rem 0}.rowItem-module--leftSection--f41dd{display:flex;flex:1 1;flex-direction:column;gap:.5rem}.rowItem-module--title--2209e{color:inherit;font-size:1rem;text-decoration:none}.rowItem-module--title--2209e:hover{text-decoration:underline}.rowItem-module--tags--f44ac{color:#666;font-size:.85rem}.rowItem-module--rightSection--9b42a{align-items:flex-end;display:flex;flex-direction:column;gap:.25rem;white-space:nowrap}.rowItem-module--date--6885d{color:#2f4f4f;font-size:.75rem;font-style:italic;font-weight:700}.lines-module--post--c3f31{font-family:Georgia,serif}.lines-module--preview-container--8a704{display:inline}.lines-module--date--99f4f{color:#2f4f4f;font-size:69%;font-style:italic;font-weight:700;text-align:end}table{table-layout:fixed;width:100%}th{padding-bottom:10px}td{text-align:left}.lines-module--three-column--f948c td:nth-child(3){text-align:right}.photoGallery-module--gallery--ec7ee{display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}.photoGallery-module--gallery-item--9fdd1{border-radius:5px;overflow:hidden;position:relative}.photoGallery-module--gallery-item--9fdd1:hover{filter:drop-shadow(5px 5px 15px darkslategrey)}.photoGallery-module--gallery-item--9fdd1 img{height:100%;object-fit:cover;position:absolute;width:100%}.photoGallery-module--gallery-item--9fdd1 img:hover{transform:scale(1.05)}.tools-module--container--f04d6{font-family:Courier New,monospace;margin:auto;position:relative}.tools-module--content-container--d2a7e{align-items:center;display:flex;flex-direction:row;justify-content:center;position:relative}.tools-module--description--6df14{flex:0 2 auto;font-weight:lighter;padding:0 20px;position:relative}.tools-module--image--1f058{box-shadow:10px;flex:2 0 auto;position:relative}</style><style type="text/css">:root, :host {
+  --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Free";
+  --fa-font-regular: normal 400 1em/1 "Font Awesome 6 Free";
+  --fa-font-light: normal 300 1em/1 "Font Awesome 6 Pro";
+  --fa-font-thin: normal 100 1em/1 "Font Awesome 6 Pro";
+  --fa-font-duotone: normal 900 1em/1 "Font Awesome 6 Duotone";
+  --fa-font-duotone-regular: normal 400 1em/1 "Font Awesome 6 Duotone";
+  --fa-font-duotone-light: normal 300 1em/1 "Font Awesome 6 Duotone";
+  --fa-font-duotone-thin: normal 100 1em/1 "Font Awesome 6 Duotone";
+  --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
+  --fa-font-sharp-solid: normal 900 1em/1 "Font Awesome 6 Sharp";
+  --fa-font-sharp-regular: normal 400 1em/1 "Font Awesome 6 Sharp";
+  --fa-font-sharp-light: normal 300 1em/1 "Font Awesome 6 Sharp";
+  --fa-font-sharp-thin: normal 100 1em/1 "Font Awesome 6 Sharp";
+  --fa-font-sharp-duotone-solid: normal 900 1em/1 "Font Awesome 6 Sharp Duotone";
+  --fa-font-sharp-duotone-regular: normal 400 1em/1 "Font Awesome 6 Sharp Duotone";
+  --fa-font-sharp-duotone-light: normal 300 1em/1 "Font Awesome 6 Sharp Duotone";
+  --fa-font-sharp-duotone-thin: normal 100 1em/1 "Font Awesome 6 Sharp Duotone";
+}
+
+svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
+  overflow: visible;
+  box-sizing: content-box;
+}
+
+.svg-inline--fa {
+  display: var(--fa-display, inline-block);
+  height: 1em;
+  overflow: visible;
+  vertical-align: -0.125em;
+}
+.svg-inline--fa.fa-2xs {
+  vertical-align: 0.1em;
+}
+.svg-inline--fa.fa-xs {
+  vertical-align: 0em;
+}
+.svg-inline--fa.fa-sm {
+  vertical-align: -0.0714285705em;
+}
+.svg-inline--fa.fa-lg {
+  vertical-align: -0.2em;
+}
+.svg-inline--fa.fa-xl {
+  vertical-align: -0.25em;
+}
+.svg-inline--fa.fa-2xl {
+  vertical-align: -0.3125em;
+}
+.svg-inline--fa.fa-pull-left {
+  margin-right: var(--fa-pull-margin, 0.3em);
+  width: auto;
+}
+.svg-inline--fa.fa-pull-right {
+  margin-left: var(--fa-pull-margin, 0.3em);
+  width: auto;
+}
+.svg-inline--fa.fa-li {
+  width: var(--fa-li-width, 2em);
+  top: 0.25em;
+}
+.svg-inline--fa.fa-fw {
+  width: var(--fa-fw-width, 1.25em);
+}
+
+.fa-layers svg.svg-inline--fa {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.fa-layers-counter, .fa-layers-text {
+  display: inline-block;
+  position: absolute;
+  text-align: center;
+}
+
+.fa-layers {
+  display: inline-block;
+  height: 1em;
+  position: relative;
+  text-align: center;
+  vertical-align: -0.125em;
+  width: 1em;
+}
+.fa-layers svg.svg-inline--fa {
+  transform-origin: center center;
+}
+
+.fa-layers-text {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
+}
+
+.fa-layers-counter {
+  background-color: var(--fa-counter-background-color, #ff253a);
+  border-radius: var(--fa-counter-border-radius, 1em);
+  box-sizing: border-box;
+  color: var(--fa-inverse, #fff);
+  line-height: var(--fa-counter-line-height, 1);
+  max-width: var(--fa-counter-max-width, 5em);
+  min-width: var(--fa-counter-min-width, 1.5em);
+  overflow: hidden;
+  padding: var(--fa-counter-padding, 0.25em 0.5em);
+  right: var(--fa-right, 0);
+  text-overflow: ellipsis;
+  top: var(--fa-top, 0);
+  transform: scale(var(--fa-counter-scale, 0.25));
+  transform-origin: top right;
+}
+
+.fa-layers-bottom-right {
+  bottom: var(--fa-bottom, 0);
+  right: var(--fa-right, 0);
+  top: auto;
+  transform: scale(var(--fa-layers-scale, 0.25));
+  transform-origin: bottom right;
+}
+
+.fa-layers-bottom-left {
+  bottom: var(--fa-bottom, 0);
+  left: var(--fa-left, 0);
+  right: auto;
+  top: auto;
+  transform: scale(var(--fa-layers-scale, 0.25));
+  transform-origin: bottom left;
+}
+
+.fa-layers-top-right {
+  top: var(--fa-top, 0);
+  right: var(--fa-right, 0);
+  transform: scale(var(--fa-layers-scale, 0.25));
+  transform-origin: top right;
+}
+
+.fa-layers-top-left {
+  left: var(--fa-left, 0);
+  right: auto;
+  top: var(--fa-top, 0);
+  transform: scale(var(--fa-layers-scale, 0.25));
+  transform-origin: top left;
+}
+
+.fa-1x {
+  font-size: 1em;
+}
+
+.fa-2x {
+  font-size: 2em;
+}
+
+.fa-3x {
+  font-size: 3em;
+}
+
+.fa-4x {
+  font-size: 4em;
+}
+
+.fa-5x {
+  font-size: 5em;
+}
+
+.fa-6x {
+  font-size: 6em;
+}
+
+.fa-7x {
+  font-size: 7em;
+}
+
+.fa-8x {
+  font-size: 8em;
+}
+
+.fa-9x {
+  font-size: 9em;
+}
+
+.fa-10x {
+  font-size: 10em;
+}
+
+.fa-2xs {
+  font-size: 0.625em;
+  line-height: 0.1em;
+  vertical-align: 0.225em;
+}
+
+.fa-xs {
+  font-size: 0.75em;
+  line-height: 0.0833333337em;
+  vertical-align: 0.125em;
+}
+
+.fa-sm {
+  font-size: 0.875em;
+  line-height: 0.0714285718em;
+  vertical-align: 0.0535714295em;
+}
+
+.fa-lg {
+  font-size: 1.25em;
+  line-height: 0.05em;
+  vertical-align: -0.075em;
+}
+
+.fa-xl {
+  font-size: 1.5em;
+  line-height: 0.0416666682em;
+  vertical-align: -0.125em;
+}
+
+.fa-2xl {
+  font-size: 2em;
+  line-height: 0.03125em;
+  vertical-align: -0.1875em;
+}
+
+.fa-fw {
+  text-align: center;
+  width: 1.25em;
+}
+
+.fa-ul {
+  list-style-type: none;
+  margin-left: var(--fa-li-margin, 2.5em);
+  padding-left: 0;
+}
+.fa-ul > li {
+  position: relative;
+}
+
+.fa-li {
+  left: calc(-1 * var(--fa-li-width, 2em));
+  position: absolute;
+  text-align: center;
+  width: var(--fa-li-width, 2em);
+  line-height: inherit;
+}
+
+.fa-border {
+  border-color: var(--fa-border-color, #eee);
+  border-radius: var(--fa-border-radius, 0.1em);
+  border-style: var(--fa-border-style, solid);
+  border-width: var(--fa-border-width, 0.08em);
+  padding: var(--fa-border-padding, 0.2em 0.25em 0.15em);
+}
+
+.fa-pull-left {
+  float: left;
+  margin-right: var(--fa-pull-margin, 0.3em);
+}
+
+.fa-pull-right {
+  float: right;
+  margin-left: var(--fa-pull-margin, 0.3em);
+}
+
+.fa-beat {
+  animation-name: fa-beat;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, ease-in-out);
+}
+
+.fa-bounce {
+  animation-name: fa-bounce;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.28, 0.84, 0.42, 1));
+}
+
+.fa-fade {
+  animation-name: fa-fade;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
+}
+
+.fa-beat-fade {
+  animation-name: fa-beat-fade;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
+}
+
+.fa-flip {
+  animation-name: fa-flip;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, ease-in-out);
+}
+
+.fa-shake {
+  animation-name: fa-shake;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, linear);
+}
+
+.fa-spin {
+  animation-name: fa-spin;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 2s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, linear);
+}
+
+.fa-spin-reverse {
+  --fa-animation-direction: reverse;
+}
+
+.fa-pulse,
+.fa-spin-pulse {
+  animation-name: fa-spin;
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, steps(8));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fa-beat,
+.fa-bounce,
+.fa-fade,
+.fa-beat-fade,
+.fa-flip,
+.fa-pulse,
+.fa-shake,
+.fa-spin,
+.fa-spin-pulse {
+    animation-delay: -1ms;
+    animation-duration: 1ms;
+    animation-iteration-count: 1;
+    transition-delay: 0s;
+    transition-duration: 0s;
+  }
+}
+@keyframes fa-beat {
+  0%, 90% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(var(--fa-beat-scale, 1.25));
+  }
+}
+@keyframes fa-bounce {
+  0% {
+    transform: scale(1, 1) translateY(0);
+  }
+  10% {
+    transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0);
+  }
+  30% {
+    transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em));
+  }
+  50% {
+    transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0);
+  }
+  57% {
+    transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
+  }
+  64% {
+    transform: scale(1, 1) translateY(0);
+  }
+  100% {
+    transform: scale(1, 1) translateY(0);
+  }
+}
+@keyframes fa-fade {
+  50% {
+    opacity: var(--fa-fade-opacity, 0.4);
+  }
+}
+@keyframes fa-beat-fade {
+  0%, 100% {
+    opacity: var(--fa-beat-fade-opacity, 0.4);
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(var(--fa-beat-fade-scale, 1.125));
+  }
+}
+@keyframes fa-flip {
+  50% {
+    transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg));
+  }
+}
+@keyframes fa-shake {
+  0% {
+    transform: rotate(-15deg);
+  }
+  4% {
+    transform: rotate(15deg);
+  }
+  8%, 24% {
+    transform: rotate(-18deg);
+  }
+  12%, 28% {
+    transform: rotate(18deg);
+  }
+  16% {
+    transform: rotate(-22deg);
+  }
+  20% {
+    transform: rotate(22deg);
+  }
+  32% {
+    transform: rotate(-12deg);
+  }
+  36% {
+    transform: rotate(12deg);
+  }
+  40%, 100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes fa-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.fa-rotate-90 {
+  transform: rotate(90deg);
+}
+
+.fa-rotate-180 {
+  transform: rotate(180deg);
+}
+
+.fa-rotate-270 {
+  transform: rotate(270deg);
+}
+
+.fa-flip-horizontal {
+  transform: scale(-1, 1);
+}
+
+.fa-flip-vertical {
+  transform: scale(1, -1);
+}
+
+.fa-flip-both,
+.fa-flip-horizontal.fa-flip-vertical {
+  transform: scale(-1, -1);
+}
+
+.fa-rotate-by {
+  transform: rotate(var(--fa-rotate-angle, 0));
+}
+
+.fa-stack {
+  display: inline-block;
+  vertical-align: middle;
+  height: 2em;
+  position: relative;
+  width: 2.5em;
+}
+
+.fa-stack-1x,
+.fa-stack-2x {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: var(--fa-stack-z-index, auto);
+}
+
+.svg-inline--fa.fa-stack-1x {
+  height: 1em;
+  width: 1.25em;
+}
+.svg-inline--fa.fa-stack-2x {
+  height: 2em;
+  width: 2.5em;
+}
+
+.fa-inverse {
+  color: var(--fa-inverse, #fff);
+}
+
+.sr-only,
+.fa-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.sr-only-focusable:not(:focus),
+.fa-sr-only-focusable:not(:focus) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.svg-inline--fa .fa-primary {
+  fill: var(--fa-primary-color, currentColor);
+  opacity: var(--fa-primary-opacity, 1);
+}
+
+.svg-inline--fa .fa-secondary {
+  fill: var(--fa-secondary-color, currentColor);
+  opacity: var(--fa-secondary-opacity, 0.4);
+}
+
+.svg-inline--fa.fa-swap-opacity .fa-primary {
+  opacity: var(--fa-secondary-opacity, 0.4);
+}
+
+.svg-inline--fa.fa-swap-opacity .fa-secondary {
+  opacity: var(--fa-primary-opacity, 1);
+}
+
+.svg-inline--fa mask .fa-primary,
+.svg-inline--fa mask .fa-secondary {
+  fill: black;
+}</style><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){const t=e.target;if(void 0===t.dataset.mainImage)return;if(void 0===t.dataset.gatsbyImageSsr)return;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><script>
+      
+      
+      if(true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-J596TM92WV', {"send_page_view":false});
+      }
+      </script></head><body><div id="___gatsby"><title></title><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="layout-module--container--4f29e"><nav><ul class="layout-module--nav-links--a181c"><li class="layout-module--nav-link-item--fbd31"><a class="globals-module--nav-link-text--78591" href="/">HOME</a></li><li class="layout-module--nav-link-item--fbd31"><a class="globals-module--nav-link-text--78591" href="/lines">LINES</a></li><li class="layout-module--nav-link-item--fbd31"><a class="globals-module--nav-link-text--78591" href="/tools">TOOLS</a></li><li class="layout-module--nav-link-item--fbd31"><a class="globals-module--nav-link-text--78591" href="/about">ABOUT</a></li></ul></nav><p class="lines-module--date--99f4f"><i>January 2, 2018</i><br/></p><div class="lines-module--post--c3f31"><h1>Preface</h1>
+<ol>
+<li>Why am I doing this..?</li>
+<li>What makes it reasonable?</li>
+<li>Why write about it?</li>
+</ol>
+<h2>Children</h2>
+<ol>
+<li>Chapter two, &quot;Religion Kills&quot;, of <em>God is Not Great - How Religion Poisons Everything</em> by Christopher Hitchens.</li>
+</ol>
+<ul>
+<li>&quot;It [religion] may speak about the bliss of the next world, but it wants power in this one.&quot;, &quot;The true believer cannot rest until the whole world bows the knee.&quot;</li>
+<li>Sectarianism is a major theme in this chapter. Hitchens wants to make it clear that the rivalries created by sects is the first step that religion takes to start its killing process. Sects breed their own toxic subculture to propagate nothing but anti-other ideology.</li>
+<li>Many personal experiences were used to back up his claims in this chapter, and digesting each of them was crucial to tying the chapter together. There were a few moments where I felt as though he was enjoying simply sharing his wealth of experience during his research phases, but ultimately the stories all added up to become a powerful tool at summing up &quot;Religion Kills&quot;.</li>
+<li>My opinion that religion was first and foremost, and remains to be, a tool used on and against lesser privileged or less educated peoples was solidified by this chapter. Ideology seems the perfect distractor and unifier that can be leveraged by those who wish to maintain power over a group.</li>
+</ul>
+<ol start="2">
+<li>Chapter three, &quot;A Short Digression on the Pig; or, Why Heaven Hates Ham&quot; of <em>God is Not Great - How Religion Poisons Everything</em> by Christopher Hitchens.</li>
+</ol>
+<ul>
+<li>Hitchens here goes on a brief four and a half page tangent on the nature of religion&#x27;s relationship with pigs. Mostly, he talks about the history of how humanity sees the pig, and as usual spouts his opinions on the religious groups that condemn their consumption or imagery.</li>
+<li>It surprised me to learn that charcuterie platters are likely originated in Spain, where religious refugees from the Middle East were given escape. Refugees were forced to convert to Christianity and pork and cured hams were used as &quot;torture&quot; to tell whether or not a refugee was fully converted.</li>
+</ul>
+<ol start="3">
+<li>Chapter four, &quot;A Note on Health, to Which Religion Can Be Hazardous&quot; of <em>God is Not Great - How Religion Poisons Everything</em> by Christopher Hitchens.</li>
+</ol>
+<ul>
+<li>Stemming the idea of sexual repression - isn&#x27;t it likely that religion&#x27;s growth or survival is due to most of the population not knowing how to deal with their children&#x27;s behavior appropriately? This, tied with lack of education, obviously seems fairly plausible.</li>
+<li>&quot;Archbishop Lancelot Andrewes, during the celebrated &#x27;Black Death&#x27; in London in 1665, noticed uneasily that the horror fell upon those who prayed and kept the faith  as well as upon those who did not. He came perilously close to stumbling upon a real point.&quot; (48)</li>
+<li>&quot;But if these things [evil doings] can be preached under the protection of an established religion, we are expected to take them at face value.&quot; (53)</li>
+<li>&quot;...[religion] claims the right to officiate at the end of life, just as it hopes to monopolize children at life&#x27;s beginning.&quot; (60)</li>
+<li>Here, Hitchens breaks down how religion always seems to have an answer to things, regardless of what science has to say and conveniently when the answer aids in covering up things evil or complex.</li>
+</ul></div></div><footer class="globals-module--centered-text--f1021 footer-module--footer--03d8a"><div class="footer-module--footer-content--6ad50"><span class="footer-module--footer-links--4e5f0"><a href="./steve_bass_resume.pdf" class="globals-module--nav-link-text--78591" target="_blank"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="book-open" class="svg-inline--fa fa-book-open fa-1x " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M249.6 471.5c10.8 3.8 22.4-4.1 22.4-15.5l0-377.4c0-4.2-1.6-8.4-5-11C247.4 52 202.4 32 144 32C93.5 32 46.3 45.3 18.1 56.1C6.8 60.5 0 71.7 0 83.8L0 454.1c0 11.9 12.8 20.2 24.1 16.5C55.6 460.1 105.5 448 144 448c33.9 0 79 14 105.6 23.5zm76.8 0C353 462 398.1 448 432 448c38.5 0 88.4 12.1 119.9 22.6c11.3 3.8 24.1-4.6 24.1-16.5l0-370.3c0-12.1-6.8-23.3-18.1-27.6C529.7 45.3 482.5 32 432 32c-58.4 0-103.4 20-123 35.6c-3.3 2.6-5 6.8-5 11L304 456c0 11.4 11.7 19.3 22.4 15.5z"></path></svg></a></span><span class="footer-module--footer-links--4e5f0"><a href="https://www.github.com/steebe" target="_blank" class="globals-module--nav-link-text--78591 undefined" rel="noreferrer"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" class="svg-inline--fa fa-github fa-1x " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></a></span><span class="footer-module--footer-links--4e5f0"><a href="https://www.linkedin.com/in/steebe" target="_blank" class="globals-module--nav-link-text--78591" rel="noreferrer"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="linkedin-in" class="svg-inline--fa fa-linkedin-in fa-1x " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path></svg></a></span></div></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/lines/ging";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+          <script
+            id="gatsby-chunk-mapping"
+          >
+            window.___chunkMapping="{\"app\":[\"/app-0b4912ef7a04279c2791.js\"],\"component---src-pages-404-tsx\":[\"/component---src-pages-404-tsx-5cc0e1dc7913d8cef98a.js\"],\"component---src-pages-about-tsx\":[\"/component---src-pages-about-tsx-8da9c886480eb4357baf.js\"],\"component---src-pages-antipode-tsx\":[\"/component---src-pages-antipode-tsx-ae891901e3bbab295f67.js\"],\"component---src-pages-index-tsx\":[\"/component---src-pages-index-tsx-a8915928044025461a5c.js\"],\"component---src-pages-julia-tsx\":[\"/component---src-pages-julia-tsx-e4fc16f6b75bd90d70c8.js\"],\"component---src-pages-lines-index-tsx\":[\"/component---src-pages-lines-index-tsx-bc2945d9cc09828c7637.js\"],\"component---src-pages-lines-mdx-fields-slug-tsx-content-file-path-blog-2023-swoosh-mdx\":[\"/component---src-pages-lines-mdx-fields-slug-tsx-content-file-path-blog-2023-swoosh-mdx-d42f575cee012184e7fe.js\"],\"component---src-pages-lines-mdx-fields-slug-tsx-content-file-path-blog-apple-mdx\":[\"/component---src-pages-lines-mdx-fields-slug-tsx-content-file-path-blog-apple-mdx-61f8d783ce76cd7a7418.js\"],\"component---src-pages-lines-mdx-fields-slug-tsx-content-file-path-blog-broken-windows-mdx\":[\"/component---src-pages-lines-mdx-fields-slug-tsx-content-file-path-blog-broken-windows-mdx-061b89952fcfa84a38f4.js\"],\"component---src-pages-lines-mdx-fields-slug-tsx-content-file-path-blog-burning-images-to-usb-mdx\":[\"/component---src-pages-lines-mdx-fields-slug-tsx-content-file-path-blog-burning-images-to-usb-mdx-525c4cc1e52ced114e69.js\"],\"component---src-pages-lines-mdx-fields-slug-tsx-content-file-path-blog-bye-gatsby-mdx\":[\"/component---src-pages-lines-mdx-fields-slug-tsx-content-file-path-blog-bye-gatsby-mdx-eab1592846524b4d7d94.js\"],\"component---src-pages-lines-mdx-fields-slug-tsx-content-file-path-blog-climbers-hash-mdx\":[\"/component---src-pages-lines-mdx-fields-slug-tsx-content-file-path-blog-climbers-hash-mdx-275cf305a76e60bdae7d.js\"],\"component---src-pages-lines-mdx-fields-slug-tsx-content-file-path-blog-ging-mdx\":[\"/component---src-pages-lines-mdx-fields-slug-tsx-content-file-path-blog-ging-mdx-6a12813dcee607f65304.js\"],\"component---src-pages-lines-mdx-fields-slug-tsx-content-file-path-blog-git-intermediate-mdx\":[\"/component---src-pages-lines-mdx-fields-slug-tsx-content-file-path-blog-git-intermediate-mdx-d51d142abdc9b5cc3c82.js\"],\"component---src-pages-lines-mdx-fields-slug-tsx-content-file-path-blog-go-mentionables-mdx\":[\"/component---src-pages-lines-mdx-fields-slug-tsx-content-file-path-blog-go-mentionables-mdx-0b2ce88842559581a05f.js\"],\"component---src-pages-lines-mdx-fields-slug-tsx-content-file-path-blog-healthcareless-mdx\":[\"/component---src-pages-lines-mdx-fields-slug-tsx-content-file-path-blog-healthcareless-mdx-c16ac71826cbdc66a088.js\"],\"component---src-pages-lines-mdx-fields-slug-tsx-content-file-path-blog-html-5-and-localization-mdx\":[\"/component---src-pages-lines-mdx-fields-slug-tsx-content-file-path-blog-html-5-and-localization-mdx-07786a6b3b98479461c6.js\"],\"component---src-pages-lines-mdx-fields-slug-tsx-content-file-path-blog-java-codestyle-mdx\":[\"/component---src-pages-lines-mdx-fields-slug-tsx-content-file-path-blog-java-codestyle-mdx-0009a629566e6d59adc6.js\"],\"component---src-pages-lines-mdx-fields-slug-tsx-content-file-path-blog-javascript-mentionables-mdx\":[\"/component---src-pages-lines-mdx-fields-slug-tsx-content-file-path-blog-javascript-mentionables-mdx-74fb181657a7fb1f40f9.js\"],\"component---src-pages-lines-mdx-fields-slug-tsx-content-file-path-blog-mysql-tips-and-tricks-mdx\":[\"/component---src-pages-lines-mdx-fields-slug-tsx-content-file-path-blog-mysql-tips-and-tricks-mdx-555779cd348f4da4a8d7.js\"],\"component---src-pages-lines-mdx-fields-slug-tsx-content-file-path-blog-photog-mdx\":[\"/component---src-pages-lines-mdx-fields-slug-tsx-content-file-path-blog-photog-mdx-214e537f382e3d684358.js\"],\"component---src-pages-lines-mdx-fields-slug-tsx-content-file-path-blog-postgres-mentionables-mdx\":[\"/component---src-pages-lines-mdx-fields-slug-tsx-content-file-path-blog-postgres-mentionables-mdx-43c5b4a6c648f341e8f6.js\"],\"component---src-pages-lines-mdx-fields-slug-tsx-content-file-path-blog-redshift-notes-mdx\":[\"/component---src-pages-lines-mdx-fields-slug-tsx-content-file-path-blog-redshift-notes-mdx-0006328cf3f24c37c4fb.js\"],\"component---src-pages-lines-mdx-fields-slug-tsx-content-file-path-blog-redshift-opinion-mdx\":[\"/component---src-pages-lines-mdx-fields-slug-tsx-content-file-path-blog-redshift-opinion-mdx-5ee7246f270f78dc7ec5.js\"],\"component---src-pages-photos-tsx\":[\"/component---src-pages-photos-tsx-a900421c87079d6cb42a.js\"],\"component---src-pages-tools-tsx\":[\"/component---src-pages-tools-tsx-639224f1fc94e6689319.js\"]}";
+          </script>
+        <script>window.___webpackCompilationHash="66736d0aff1458645978";</script><script src="/webpack-runtime-0a54a0c70e3de0589606.js" async></script><script src="/framework-606bfd69adf14c7c2930.js" async></script><script src="/app-0b4912ef7a04279c2791.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>
