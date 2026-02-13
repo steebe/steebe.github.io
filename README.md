@@ -4,6 +4,7 @@ A revamping of Steve Bass’ personal site, using Gatsby.
 
 ### Release Notes
 
+- `1.4.1`: Gatsby 5.16 ; React 19
 - `1.4.0`: Easter egg, featuring central widgetiness
 - `1.3.0`: Restored blog with more intentional line listing with fixed sorting and tagging capabilities
 - `1.2.4`: Cleaned up layout code; "soft-launch" of image components I don't hate a ton
