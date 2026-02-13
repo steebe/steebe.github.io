@@ -1,7 +1,9 @@
 import React, { ReactNode } from "react";
 import { siteImage } from "../globals.module.css";
-import { container, contentContainer, description, image } from "./tools.module.css";
+import { contentContainer, description, image } from "./tools.module.css";
 import { StaticImage } from "gatsby-plugin-image";
+import Widget from "../widgets/widget";
+import AntipodeWidget from "../widgets/antipodeWidget";
 
 type Tool = {
   name: string;
@@ -44,21 +46,17 @@ const Tools = () => {
   ];
 
   return (
-    <>
+    <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
       {tools.map((tool) => (
-        <div className={container} key={tool.name}>
-          <h1>
-            <a href={tool.link} target="_blank" rel="noreferrer">
-              {tool.name}
-            </a>
-          </h1>
+        <Widget key={tool.name} title={tool.name} url={tool.link}>
           <div className={contentContainer}>
             <div className={image}>{tool.image}</div>
             <p className={description}>{tool.description}</p>
           </div>
-        </div>
+        </Widget>
       ))}
-    </>
+      <AntipodeWidget />
+    </div>
   );
 };
 

@@ -6,7 +6,7 @@ import classnames from "classnames";
 import Footer from "../footer/footer";
 
 export const Head = () => (
-  <script src="https://kit.fontawesome.com/fa5a068953.js" crossOrigin="anonymous"></script>
+  <script src={process.env.GATSBY_FONTAWESOME_KIT_URL} crossOrigin="anonymous"></script>
 );
 
 type Props = {
@@ -60,7 +60,6 @@ class NavLocation {
 
 const Layout: React.FC<Props> = ({ children }) => {
   const path = typeof window !== "undefined" ? window.location.pathname : undefined;
-  // const isPhotos = path?.includes("photos");
   const isTools = path?.includes("tool");
   const isAbout = path?.includes("about");
   const isBlogRoot = path?.endsWith("lines") || path?.endsWith("lines/") || path?.includes("lines");
@@ -68,7 +67,6 @@ const Layout: React.FC<Props> = ({ children }) => {
 
   const navLocations = [
     new NavLocation(isHome, TITLES.HOME),
-    // new NavLocation(isPhotos, TITLES.PHOTOS),
     new NavLocation(isBlogRoot, TITLES.LINES),
     new NavLocation(isTools, TITLES.TOOLS),
     new NavLocation(isAbout, TITLES.ABOUT),
@@ -89,7 +87,7 @@ const Layout: React.FC<Props> = ({ children }) => {
             ))}
           </ul>
         </nav>
-        <p>{children}</p>
+        {children}
       </div>
       <Footer />
     </>

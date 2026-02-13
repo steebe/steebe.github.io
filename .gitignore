@@ -9,5 +9,8 @@ build/
 # IDE
 .idea/
 
+# Environment variables
+.env*
+
 # System
 **/.DS_Store

@@ -30,6 +30,11 @@ jobs:
       - name: compile
         run: npm run compile
 
+      - name: Create .env.production
+        run: |
+          echo "GATSBY_GOOGLE_MAPS_API_KEY=${{ secrets.GATSBY_GOOGLE_MAPS_API_KEY }}" >> .env.production
+          echo "GATSBY_FONTAWESOME_KIT_URL=${{ secrets.GATSBY_FONTAWESOME_KIT_URL }}" >> .env.production
+
       - name: Gatsby Publish
         uses: steebe/gatsby-gh-pages-action@v2.2.4
         with:

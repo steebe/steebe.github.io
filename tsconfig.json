@@ -5,7 +5,7 @@
     "lib": [
       "dom"
     ],
-    "jsx": "react",
+    "jsx": "react-jsx",
     "module": "commonjs",
     "rootDir": "./src",
     "allowJs": true,
