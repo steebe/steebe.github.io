@@ -4,6 +4,7 @@ A revamping of Steve Bass’ personal site, using Gatsby.
 
 ### Release Notes
 
+- `1.5.1`: grocery sms terms & privacy
 - `1.5.0`: /antipode and minor /tools update
 - `1.4.1`: Gatsby 5.16 ; React 19
 - `1.4.0`: Easter egg, featuring central widgetiness
