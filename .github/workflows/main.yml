@@ -4,22 +4,28 @@ on:
   push:
     branches:
       - dev
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
 jobs:
-  compile-deploy:
+  build:
     runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
 
     steps:
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v7
 
       - name: Configure Node.js
-        uses: actions/setup-node@v3.6.0
+        uses: actions/setup-node@v7
         with:
           node-version: 22.21.1
+          cache: npm
 
       - name: install
         run: npm i --force
@@ -30,13 +36,30 @@ jobs:
       - name: compile
         run: npm run compile
 
-      - name: Create .env.production
-        run: |
-          echo "GATSBY_GOOGLE_MAPS_API_KEY=${{ secrets.GATSBY_GOOGLE_MAPS_API_KEY }}" >> .env.production
-          echo "GATSBY_FONTAWESOME_KIT_URL=${{ secrets.GATSBY_FONTAWESOME_KIT_URL }}" >> .env.production
+      - name: build
+        run: npm run build
+        env:
+          GATSBY_GOOGLE_MAPS_API_KEY: ${{ secrets.GATSBY_GOOGLE_MAPS_API_KEY }}
 
-      - name: Gatsby Publish
-        uses: steebe/gatsby-gh-pages-action@v2.2.4
+      - name: upload artifact
+        uses: actions/upload-pages-artifact@v5
         with:
-          access-token: ${{ secrets.ACCESS_TOKEN }}
-          package-manager-force: true
+          path: public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    # Scoped to this job only; the build job never needs to mint an OIDC token.
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: deploy
+        id: deployment
+        uses: actions/deploy-pages@v5
