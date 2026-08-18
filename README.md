@@ -4,6 +4,7 @@ A revamping of Steve Bass’ personal site, using Gatsby.
 
 ### Release Notes
 
+- `1.7.1`: tagging ux
 - `1.7.0`: facelift
   - IBM Plex Mono, bro
   - dark mode, finally (ffs, right)

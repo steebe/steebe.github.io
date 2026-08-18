@@ -31,6 +31,16 @@
   color: var(--fg-faint);
 }
 
+.tagLink {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.12s ease;
+}
+
+.tagLink:hover {
+  color: var(--accent);
+}
+
 .rightSection {
   display: flex;
   flex-direction: column;

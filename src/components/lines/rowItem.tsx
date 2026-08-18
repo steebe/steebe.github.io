@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 import { Node } from "../../types/node";
+import { tagPath } from "./tagFilter";
 import * as styles from "./rowItem.module.css";
 
 interface RowItemProps {
@@ -17,7 +18,20 @@ const RowItem: React.FC<RowItemProps> = ({ node }) => {
         <Link to={`/lines${slug}`} className={styles.title}>
           {title.toLowerCase()}
         </Link>
-        {tags && tags.length > 0 && <div className={styles.tags}>{`[${tags.join(", ")}]`}</div>}
+        {tags && tags.length > 0 && (
+          <div className={styles.tags}>
+            {"["}
+            {tags.map((tag, index) => (
+              <React.Fragment key={tag}>
+                {index > 0 && ", "}
+                <Link to={tagPath(tag)} className={styles.tagLink}>
+                  {tag}
+                </Link>
+              </React.Fragment>
+            ))}
+            {"]"}
+          </div>
+        )}
       </div>
 
       <div className={styles.rightSection}>

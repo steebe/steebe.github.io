@@ -71,3 +71,8 @@
   padding: 0.5em 0.75em;
   border-bottom: 1px solid var(--rule);
 }
+
+.empty {
+  color: var(--fg-muted);
+  font-size: var(--fs-sm);
+}

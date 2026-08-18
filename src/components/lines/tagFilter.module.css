@@ -1,0 +1,47 @@
+.filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.75rem 1.25rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.label {
+  font-size: var(--fs-xs);
+  color: var(--fg-faint);
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.list li {
+  margin: 0;
+}
+
+/* The underline is always in the box, just transparent, so switching the
+   active tag can't reflow the row. */
+.link {
+  font-size: var(--fs-sm);
+  color: var(--fg-faint);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition: color 0.12s ease;
+}
+
+.link:hover {
+  color: var(--accent);
+}
+
+.link-current {
+  color: var(--fg);
+  border-bottom-color: var(--accent);
+}
