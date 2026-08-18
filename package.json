@@ -9,7 +9,7 @@
   ],
   "name": "steebe.dev",
   "private": true,
-  "version": "1.5.1",
+  "version": "1.7.0",
   "scripts": {
     "build": "gatsby build",
     "clean": "gatsby clean",
@@ -23,6 +23,7 @@
     "start": "gatsby develop"
   },
   "dependencies": {
+    "@fontsource/ibm-plex-mono": "^5.2.6",
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
     "@fortawesome/free-brands-svg-icons": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
@@ -39,7 +40,9 @@
     "gatsby-plugin-mdx": "^5.16.0",
     "gatsby-plugin-sharp": "^5.16.0",
     "gatsby-remark-images": "^7.16.0",
+    "gatsby-remark-prismjs": "^7.16.0",
     "gatsby-source-filesystem": "^5.16.0",
+    "prismjs": "^1.30.0",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },

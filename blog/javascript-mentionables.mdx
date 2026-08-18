@@ -11,7 +11,7 @@ draft: true
 In any line that evaluates multiple conditions, JS does its best to short-
 circuit what needs to be evaluated.
 
-```JavaScript
+```javascript
 // LHS is evaluated and returned as true (RHS ignored)
 console.log("me" || "you");
 
@@ -24,7 +24,7 @@ console.log(0 ? ("me || me") : ("you" && "you"))
 JS does its best to allow any types to be compared and returned. Its interpreter
 performs _type coercion_ on the values it is "confused" about.
 
-```JavaScript
+```javascript
 console.log(8 * null);  // converts null to 0, returns 0
 console.log("5" - 1);   // converts "5" to 5, returns 4
 console.log("5" + 1);   // converts 1 to "1", returns "51"

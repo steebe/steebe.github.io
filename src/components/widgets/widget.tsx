@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 import { OutboundLink } from "gatsby-plugin-google-gtag";
+import { widget, title as titleStyle } from "./widget.module.css";
 
 interface WidgetProps {
   children: React.ReactNode;
@@ -11,7 +12,7 @@ interface WidgetProps {
 
 const Widget: React.FC<WidgetProps> = ({ children, title, to, url }) => {
   const titleContent = title && (
-    <h2 style={{ marginTop: 0, marginBottom: "1rem", textAlign: "left" }}>
+    <h2 className={titleStyle}>
       {to ? (
         <Link to={to}>{title}</Link>
       ) : url ? (
@@ -25,7 +26,7 @@ const Widget: React.FC<WidgetProps> = ({ children, title, to, url }) => {
   );
 
   return (
-    <div style={{ border: "1px solid black", padding: "1rem" }}>
+    <div className={widget}>
       {titleContent}
       {children}
     </div>

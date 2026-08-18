@@ -1,97 +1,69 @@
 import React, { ReactNode } from "react";
 import { Link } from "gatsby";
-import { navLinkCurrentItem, navLinkText } from "../globals.module.css";
-import { container, navLinks, navLinkItem } from "./layout.module.css";
+import {
+  shell,
+  container,
+  mid,
+  wide,
+  masthead,
+  mastheadInner,
+  navLinks,
+  navLinkItem,
+  navLink,
+  navLinkCurrent,
+} from "./layout.module.css";
 import classnames from "classnames";
 import Footer from "../footer/footer";
+import ThemeToggle from "../theme/themeToggle";
 
-export const Head = () => (
-  <script src={process.env.GATSBY_FONTAWESOME_KIT_URL} crossOrigin="anonymous"></script>
-);
+export type Width = "prose" | "mid" | "wide";
 
 type Props = {
   children?: ReactNode;
+  width?: Width;
 };
 
-const SITE_NAME_ROOT = "steebe - ";
+const NAV_ITEMS = [
+  { label: "home", path: "/", partial: false },
+  { label: "lines", path: "/lines", partial: true },
+  { label: "tools", path: "/tools", partial: true },
+  { label: "about", path: "/about", partial: true },
+];
 
-const TITLES = {
-  HOME: SITE_NAME_ROOT + "HOME",
-  PHOTOS: SITE_NAME_ROOT + "PHOTOS",
-  LINES: SITE_NAME_ROOT + "LINES",
-  TOOLS: SITE_NAME_ROOT + "TOOLS",
-  ABOUT: SITE_NAME_ROOT + "ABOUT",
+const WIDTH_CLASSES: Record<Width, string | null> = {
+  prose: null,
+  mid,
+  wide,
 };
 
-class NavLocation {
-  current: boolean | undefined;
-  title: string;
-  linkLabel: string;
-  linkPath: string;
-  classNames: classnames.ArgumentArray;
-  constructor(current: boolean | undefined, title: string) {
-    this.current = current;
-    this.title = title;
-    this.linkLabel = title.replace(SITE_NAME_ROOT, "");
-
-    this.linkPath = "/";
-    switch (title) {
-      case TITLES.HOME:
-        this.linkPath = "/";
-        break;
-      case TITLES.PHOTOS:
-        this.linkPath = "/photos";
-        break;
-      case TITLES.LINES:
-        this.linkPath = "/lines";
-        break;
-      case TITLES.TOOLS:
-        this.linkPath = "/tools";
-        break;
-      case TITLES.ABOUT:
-        this.linkPath = "/about";
-        break;
-      default:
-        break;
-    }
-    this.classNames = [navLinkText, current ? navLinkCurrentItem : null];
-  }
-}
-
-const Layout: React.FC<Props> = ({ children }) => {
-  const path = typeof window !== "undefined" ? window.location.pathname : undefined;
-  const isTools = path?.includes("tool");
-  const isAbout = path?.includes("about");
-  const isBlogRoot = path?.endsWith("lines") || path?.endsWith("lines/") || path?.includes("lines");
-  const isHome = path === "/";
-
-  const navLocations = [
-    new NavLocation(isHome, TITLES.HOME),
-    new NavLocation(isBlogRoot, TITLES.LINES),
-    new NavLocation(isTools, TITLES.TOOLS),
-    new NavLocation(isAbout, TITLES.ABOUT),
-  ];
-
-  return (
-    <>
-      <div className={container}>
-        <title>{navLocations.filter((loc) => loc.current).map((loc) => loc.title)}</title>
+// The masthead sits outside the content column so that it always lands on the
+// same rail; only `children` respects the per-route width.
+const Layout: React.FC<Props> = ({ children, width = "prose" }) => (
+  <div className={shell}>
+    <header className={masthead}>
+      <div className={mastheadInner}>
         <nav>
           <ul className={navLinks}>
-            {navLocations.map((location) => (
-              <li key={location.title} className={navLinkItem}>
-                <Link to={location.linkPath} className={classnames(location.classNames)}>
-                  {location.linkLabel}
+            {NAV_ITEMS.map(({ label, path, partial }) => (
+              <li key={path} className={navLinkItem}>
+                <Link
+                  to={path}
+                  className={navLink}
+                  activeClassName={navLinkCurrent}
+                  partiallyActive={partial}
+                >
+                  {label}
                 </Link>
               </li>
             ))}
           </ul>
         </nav>
-        {children}
+        <ThemeToggle />
       </div>
-      <Footer />
-    </>
-  );
-};
+    </header>
+    <main className={classnames(container, WIDTH_CLASSES[width])}>{children}</main>
+    <Footer />
+  </div>
+);
 
 export default Layout;

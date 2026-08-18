@@ -1,20 +1,84 @@
-.container {
-  font-family: "Courier New", monospace;
+.shell {
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
-  margin: auto;
-  max-width: 500px;
-  padding-bottom: 50px;
+}
+
+.container {
+  flex: 1;
+  width: 100%;
+  max-width: var(--w, var(--w-prose));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  padding-bottom: 4rem;
+}
+
+.mid {
+  --w: var(--w-mid);
+}
+
+.wide {
+  --w: var(--w-wide);
+}
+
+.masthead {
+  width: 100%;
+}
+
+.masthead-inner {
+  width: 100%;
+  max-width: var(--w-wide);
+  margin-inline: auto;
+  padding: 2rem var(--gutter) 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
 }
 
 .nav-links {
   display: flex;
+  flex-wrap: wrap;
+  gap: 1.75rem;
   list-style: none;
-  padding-left: 0;
-  padding-top: 20px;
-  padding-bottom: 10px;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-link-item {
-  padding-right: 2rem;
+  margin: 0;
+}
+
+/* Every link reserves the marker's width, so the row cannot reflow as the
+   current route changes. The empty alt text keeps the slash out of the
+   accessibility tree. */
+.nav-link::before {
+  content: "/" / "";
+  color: transparent;
+}
+
+.nav-link {
+  color: var(--fg-faint);
+  text-decoration: none;
+  font-size: var(--fs-sm);
+  letter-spacing: 0.02em;
+  transition: color 0.12s ease;
+}
+
+.nav-link:hover {
+  color: var(--accent);
+}
+
+.nav-link-current {
+  color: var(--fg);
+}
+
+.nav-link-current::before {
+  color: var(--fg-faint);
+}
+
+@media (max-width: 30rem) {
+  .nav-links {
+    gap: 1.25rem;
+  }
 }

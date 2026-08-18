@@ -26,4 +26,6 @@ const Antipode = () => {
   );
 };
 
+export const Head = () => <title>steebe - ANTIPODE</title>;
+
 export default Antipode;

@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import { siteImage } from "../globals.module.css";
-import { contentContainer, description, image } from "./tools.module.css";
+import { tools as toolsStyle, contentContainer, description, image } from "./tools.module.css";
 import { StaticImage } from "gatsby-plugin-image";
 import Widget from "../widgets/widget";
 import AntipodeWidget from "../widgets/antipodeWidget";
@@ -46,7 +46,7 @@ const Tools = () => {
   ];
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+    <div className={toolsStyle}>
       {tools.map((tool) => (
         <Widget key={tool.name} title={tool.name} url={tool.link}>
           <div className={contentContainer}>

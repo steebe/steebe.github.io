@@ -4,6 +4,20 @@ A revamping of Steve Bass’ personal site, using Gatsby.
 
 ### Release Notes
 
+- `1.7.0`: facelift
+  - IBM Plex Mono, bro
+  - dark mode, finally (ffs, right)
+  - cuter theming
+  - random ass favicon
+- `1.6.0`: Restyle — a real design system
+  - Design tokens (colour, type scale, measure) in `src/styles/global.css`, loaded via a new `gatsby-browser.js`
+  - Self-hosted JetBrains Mono (variable, `@fontsource-variable`) everywhere; retires the Courier New / Georgia split
+  - Dark mode: follows `prefers-color-scheme`, overridable by a nav toggle persisted to `localStorage`,
+    applied pre-paint by a script in the new `gatsby-ssr.js`
+  - Syntax highlighting via `gatsby-remark-prismjs`, with token colours driven by custom properties so
+    code follows the theme instead of shipping a stock Prism stylesheet
+  - Posts render a real header from frontmatter (title, date, tags) — the title was queried but never shown
+  - Responsive width tiers (prose / mid / wide) replace the flat 500px container; footer moved in-flow
 - `1.5.1`: grocery sms terms & privacy
 - `1.5.0`: /antipode and minor /tools update
 - `1.4.1`: Gatsby 5.16 ; React 19

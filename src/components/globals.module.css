@@ -2,24 +2,6 @@
   text-align: center;
 }
 
-.nav-link-text {
-  color: darkslategrey;
-}
-
-.nav-link-current-item {
-  text-decoration: none;
-}
-
 .site-image {
-  border-radius: 5px;
-}
-
-@keyframes flare {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-    font-size: 20px;
-  }
+  border-radius: var(--radius);
 }

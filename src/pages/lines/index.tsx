@@ -17,12 +17,9 @@ const Writings = ({ data }: PageProps<DataProps>) => {
   eligibleNodes.sort((a: Node, b: Node) => sortByDate(a, b));
 
   return (
-    <Layout>
-      {eligibleNodes.map((node, index) => (
-        <React.Fragment key={node.id}>
-          <RowItem node={node} />
-          {index < eligibleNodes.length - 1 && <hr />}
-        </React.Fragment>
+    <Layout width="mid">
+      {eligibleNodes.map((node) => (
+        <RowItem key={node.id} node={node} />
       ))}
     </Layout>
   );
@@ -40,6 +37,8 @@ function sortByDate(a: Node, b: Node): number {
 
   return dateB.valueOf() - dateA.valueOf();
 }
+
+export const Head = () => <title>steebe - LINES</title>;
 
 export const query = graphql`
   {

@@ -27,6 +27,14 @@ module.exports = {
               sizeByPixelDensity: true,
             },
           },
+          {
+            resolve: "gatsby-remark-prismjs",
+            options: {
+              classPrefix: "language-",
+              showLineNumbers: false,
+              noInlineHighlight: true,
+            },
+          },
         ],
       },
     },

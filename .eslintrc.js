@@ -13,6 +13,7 @@ module.exports = {
     ".eslintrc.js",
     "gatsby-config.js",
     "gatsby-node.js",
+    "gatsby-ssr.js",
     "build/",
     "public/",
     "src/generated/",

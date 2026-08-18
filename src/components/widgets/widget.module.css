@@ -1,0 +1,12 @@
+.widget {
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: var(--bg-subtle);
+  padding: 1.25rem;
+}
+
+.title {
+  margin: 0 0 1rem;
+  font-size: var(--fs-lg);
+  text-align: left;
+}

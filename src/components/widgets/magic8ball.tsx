@@ -2,7 +2,7 @@ import React from "react";
 
 const Magic8Ball = () => {
   return (
-    <pre style={{ fontFamily: "monospace", whiteSpace: "pre" }}>
+    <pre style={{ whiteSpace: "pre" }}>
       {`
       ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣀⣀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
       ⠀⠀⠀⠀⠀⠀⠀⢀⣠⠶⠞⠛⠋⠉⠉⠉⠉⠙⠛⠳⠶⣄⡀⠀⠀⠀⠀⠀⠀⠀

@@ -14,4 +14,6 @@ const IndexPage = () => {
   );
 };
 
+export const Head = () => <title>steebe - HOME</title>;
+
 export default IndexPage;

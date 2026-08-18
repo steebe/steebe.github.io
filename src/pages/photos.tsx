@@ -4,10 +4,12 @@ import PhotoGallery from "../components/photoGallery/photoGallery";
 
 const Photos = () => {
   return (
-    <Layout>
+    <Layout width="wide">
       <PhotoGallery />
     </Layout>
   );
 };
+
+export const Head = () => <title>steebe - PHOTOS</title>;
 
 export default Photos;

@@ -38,14 +38,14 @@ const About = () => {
         after occasionally drifting from city to city in search for a cure for boredom and ennui.
         Thus far, the following proved to be effective at quelling the symptoms, but not acted as a
         full-blown cure:
-        <ul>
-          <li>Rochester, NY</li>
-          <li>Buffalo, NY</li>
-          <li>Pittsburgh, PA</li>
-          <li>San Diego, CA</li>
-          <li>Grass Valley, CA</li>
-        </ul>
       </p>
+      <ul>
+        <li>Rochester, NY</li>
+        <li>Buffalo, NY</li>
+        <li>Pittsburgh, PA</li>
+        <li>San Diego, CA</li>
+        <li>Grass Valley, CA</li>
+      </ul>
       <p>
         Steve holds a Bachelor’s of Science in Computer Science from the University at Buffalo in
         Western New York.
@@ -53,5 +53,7 @@ const About = () => {
     </Layout>
   );
 };
+
+export const Head = () => <title>steebe - ABOUT</title>;
 
 export default About;

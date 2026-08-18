@@ -1,0 +1,353 @@
+/* ==========================================================================
+   Design tokens
+   ========================================================================== */
+
+:root {
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+
+  /* surfaces & ink */
+  --bg: #fbfaf7;
+  --bg-subtle: #f2f0ea;
+  --bg-inset: #eceae2;
+  --fg: #1c1b19;
+  --fg-muted: #6b6862;
+  --fg-faint: #94908a;
+  --rule: #dedbd2;
+
+  --accent: #1f6f5c;
+  --accent-hover: #14503f;
+  --selection: #d9e8e2;
+
+  /* syntax */
+  --code-comment: var(--fg-faint);
+  --code-keyword: #1f6f5c;
+  --code-string: #a05a2c;
+  --code-number: #7a5ea8;
+
+  /* type scale — modest, because monospace runs wide */
+  --fs-base: clamp(0.9375rem, 0.875rem + 0.25vw, 1.0625rem);
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.8125rem;
+  --fs-lg: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);
+  --fs-xl: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  --fs-2xl: clamp(1.5rem, 1.25rem + 1vw, 2rem);
+  --lh-body: 1.7;
+  --lh-tight: 1.25;
+
+  /* measure */
+  --w-prose: 68ch;
+  --w-mid: 860px;
+  --w-wide: 1180px;
+  --gutter: clamp(1rem, 4vw, 2.5rem);
+  --radius: 4px;
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1013;
+    --bg-subtle: #16191e;
+    --bg-inset: #1c2027;
+    --fg: #d4d0c8;
+    --fg-muted: #8b8781;
+    --fg-faint: #5f5c57;
+    --rule: #262a31;
+
+    --accent: #7fbfa8;
+    --accent-hover: #a3d6c3;
+    --selection: #24382f;
+
+    --code-keyword: #7fbfa8;
+    --code-string: #d9a066;
+    --code-number: #b3a0d9;
+
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #0e1013;
+  --bg-subtle: #16191e;
+  --bg-inset: #1c2027;
+  --fg: #d4d0c8;
+  --fg-muted: #8b8781;
+  --fg-faint: #5f5c57;
+  --rule: #262a31;
+
+  --accent: #7fbfa8;
+  --accent-hover: #a3d6c3;
+  --selection: #24382f;
+
+  --code-keyword: #7fbfa8;
+  --code-string: #d9a066;
+  --code-number: #b3a0d9;
+
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+/* ==========================================================================
+   Reset & base
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  /* Keeps the centred rails from shifting between routes that do and don't scroll. */
+  scrollbar-gutter: stable;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-mono);
+  font-size: var(--fs-base);
+  line-height: var(--lh-body);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--selection);
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 2.2em 0 0.8em;
+  line-height: var(--lh-tight);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--fs-2xl);
+}
+h2 {
+  font-size: var(--fs-xl);
+}
+h3 {
+  font-size: var(--fs-lg);
+}
+
+h4,
+h5,
+h6 {
+  font-size: var(--fs-base);
+  color: var(--fg-muted);
+}
+
+:is(h1, h2, h3, h4, h5, h6):first-child {
+  margin-top: 0;
+}
+
+p {
+  margin: 0 0 1.4em;
+}
+
+/* 600 is the heaviest weight loaded; without this, bold synthesises a fake 700. */
+b,
+strong {
+  font-weight: 600;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  transition: color 0.12s ease;
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+ul,
+ol {
+  margin: 0 0 1.4em;
+  padding-left: 1.4em;
+}
+
+ul {
+  list-style-type: square;
+}
+
+li {
+  margin-bottom: 0.4em;
+}
+
+li::marker {
+  color: var(--fg-faint);
+}
+
+li > ul,
+li > ol {
+  margin: 0.4em 0 0;
+}
+
+blockquote {
+  margin: 1.6em 0;
+  padding-left: 1.2em;
+  border-left: 2px solid var(--rule);
+  color: var(--fg-muted);
+  font-style: italic;
+}
+
+blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 2.5em 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+small {
+  font-size: var(--fs-sm);
+  color: var(--fg-muted);
+}
+
+/* ==========================================================================
+   Code
+   ========================================================================== */
+
+code,
+kbd,
+samp,
+pre {
+  font-family: var(--font-mono);
+}
+
+code {
+  font-size: 0.9em;
+  background: var(--bg-inset);
+  padding: 0.15em 0.4em;
+  border-radius: 3px;
+}
+
+pre {
+  margin: 1.6em 0;
+  padding: 1rem 1.1rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  tab-size: 2;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  font-size: inherit;
+}
+
+/* Prism tokens — driven by custom properties so they follow the theme */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: var(--code-comment);
+  font-style: italic;
+}
+
+.token.keyword,
+.token.operator,
+.token.selector,
+.token.tag,
+.token.rule,
+.token.important,
+.token.atrule {
+  color: var(--code-keyword);
+}
+
+.token.string,
+.token.attr-value,
+.token.char,
+.token.regex,
+.token.url {
+  color: var(--code-string);
+}
+
+.token.number,
+.token.boolean,
+.token.constant,
+.token.symbol,
+.token.builtin,
+.token.entity {
+  color: var(--code-number);
+}
+
+.token.function,
+.token.class-name {
+  color: var(--fg);
+  font-weight: 600;
+}
+
+.token.punctuation,
+.token.attr-name,
+.token.property {
+  color: var(--fg-muted);
+}
+
+.token.bold {
+  font-weight: 700;
+}
+.token.italic {
+  font-style: italic;
+}
+
+/* gatsby-remark-prismjs wraps blocks in .gatsby-highlight */
+.gatsby-highlight {
+  margin: 1.6em 0;
+}
+
+.gatsby-highlight pre[class*="language-"] {
+  margin: 0;
+}
+
+/* ==========================================================================
+   Images from gatsby-remark-images
+   ========================================================================== */
+
+.gatsby-resp-image-wrapper {
+  margin: 2em 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+}

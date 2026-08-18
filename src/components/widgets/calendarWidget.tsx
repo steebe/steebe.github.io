@@ -50,11 +50,11 @@ const CalendarWidget = () => {
             key={day}
             style={{
               padding: "1rem",
-              border: "2px solid #333",
+              border: "1px solid var(--rule)",
               borderRadius: "8px",
               minWidth: "80px",
               textAlign: "center",
-              backgroundColor: "#f5f5f5",
+              backgroundColor: "var(--bg-subtle)",
               transition: "all 0.5s ease-in-out",
               flexShrink: 0,
             }}
@@ -86,8 +86,8 @@ const CalendarWidget = () => {
             padding: "0.75rem 2rem",
             fontSize: "1rem",
             fontWeight: "bold",
-            backgroundColor: "#2f4f4f",
-            color: "white",
+            backgroundColor: "var(--accent)",
+            color: "var(--bg)",
             border: "none",
             borderRadius: "6px",
             cursor: days.includes("Monday") ? "pointer" : "not-allowed",

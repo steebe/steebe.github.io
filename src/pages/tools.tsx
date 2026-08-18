@@ -4,10 +4,12 @@ import Tools from "../components/tools/tools";
 
 const ToolsPage = () => {
   return (
-    <Layout>
+    <Layout width="mid">
       <Tools />
     </Layout>
   );
 };
+
+export const Head = () => <title>steebe - TOOLS</title>;
 
 export default ToolsPage;

@@ -1,30 +1,73 @@
+.back {
+  display: inline-block;
+  color: var(--fg-faint);
+  text-decoration: none;
+  font-size: var(--fs-sm);
+  margin-bottom: 2.5rem;
+  transition: color 0.12s ease;
+}
+
+.back:hover {
+  color: var(--accent);
+}
+
+.header {
+  margin-bottom: 3rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.title {
+  margin: 0 0 0.75rem;
+  font-size: var(--fs-2xl);
+}
+
+.meta {
+  margin: 0;
+  font-size: var(--fs-xs);
+  color: var(--fg-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Post body — MDX output has no class hooks, so everything is a descendant
+   selector. Element-level defaults live in src/styles/global.css.
+   -------------------------------------------------------------------------- */
+
 .post {
-  font-family: Georgia, serif;
-}
-.preview-container {
-  display: inline;
-}
-.date {
-  text-align: end;
-  font-size: 69%;
-  font-style: italic;
-  font-weight: bold;
-  color: darkslategrey;
+  font-size: var(--fs-base);
 }
 
-table {
-  table-layout: fixed;
+/* The page title is the h1; headings authored inside a post start one level down. */
+.post h1 {
+  font-size: var(--fs-xl);
+}
+
+.post h2 {
+  font-size: var(--fs-lg);
+}
+
+.post > :last-child {
+  margin-bottom: 0;
+}
+
+.post table {
+  display: block;
   width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  font-size: var(--fs-sm);
+  margin: 1.6em 0;
 }
 
-th {
-  padding-bottom: 10px;
-}
-
-td {
+.post th {
   text-align: left;
+  font-weight: 600;
+  padding: 0.5em 0.75em;
+  border-bottom: 1px solid var(--rule);
 }
 
-.three-column td:nth-child(3) {
-  text-align: right;
+.post td {
+  text-align: left;
+  padding: 0.5em 0.75em;
+  border-bottom: 1px solid var(--rule);
 }

@@ -14,4 +14,6 @@ const Julia = () => {
   );
 };
 
+export const Head = () => <title>steebe - J&apos;S CORNER</title>;
+
 export default Julia;

@@ -11,12 +11,9 @@ const GrocerySmsPrivacy = () => {
   return (
     <main
       style={{
-        maxWidth: "42rem",
+        maxWidth: "var(--w-prose)",
         margin: "0 auto",
-        padding: "2rem 1.25rem",
-        fontFamily: "system-ui, -apple-system, Segoe UI, Roboto, sans-serif",
-        lineHeight: 1.6,
-        color: "#1a1a1a",
+        padding: "2rem var(--gutter)",
       }}
     >
       <h1>Grocery SMS — Privacy Policy &amp; Terms of Service</h1>
