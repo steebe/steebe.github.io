@@ -14,6 +14,7 @@
     "build": "gatsby build",
     "clean": "gatsby clean",
     "compile": "tsc",
+    "deps": "npm i --verbose --legacy-peer-deps --force",
     "dev": "gatsby develop",
     "lint": "eslint . && prettier --check src",
     "lint-fix": "eslint . --fix && prettier --write src",
