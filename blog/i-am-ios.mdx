@@ -1,0 +1,34 @@
+---
+title: "i, iOS"
+date: "2026-11-02"
+tags: ["nerd shit"]
+---
+
+
+## XCode
+
+wtf is running?
+
+```shell
+xcrun simctl list devices available | grep Booted
+```
+
+ipad?
+
+```shell
+xcrun simctl list devices available | grep -i ipad
+```
+
+wipe sim instance
+
+```shell
+xcrun simctl shutdown <UDID>
+xcrun simctl erase <UDID>
+```
+
+
+NUKE
+
+```shell
+xcrun simctl shutdown all && xcrun simctl erase all
+```
