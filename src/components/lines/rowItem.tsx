@@ -16,7 +16,7 @@ const RowItem: React.FC<RowItemProps> = ({ node }) => {
     <div className={styles.rowItem}>
       <div className={styles.leftSection}>
         <Link to={`/lines${slug}`} className={styles.title}>
-          {title.toLowerCase()}
+          {title?.toLowerCase() ?? "untitled"}
         </Link>
         {tags && tags.length > 0 && (
           <div className={styles.tags}>
